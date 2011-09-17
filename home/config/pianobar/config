@@ -1,0 +1,5 @@
+user = jonkinney@gmail.com
+password = 
+autostart_station = 19249644047752946
+audio_format = aacplus
+event_command = ~/.j2fly-dotfiles/pianobar/pianobar-notify.rb

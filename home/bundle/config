@@ -1,0 +1,2 @@
+--- 
+BUNDLE_BUILD__MYSQL: --with-mysql-config=/usr/local/bin/mysql_config

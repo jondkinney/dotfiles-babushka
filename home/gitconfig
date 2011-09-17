@@ -1,0 +1,17 @@
+[user]
+	name = Jon Kinney
+	email = jonkinney@gmail.com
+[difftool]
+[diff]
+[core]
+	editor = mate -w
+	excludesfile = /Users/jon/.global_ignore
+[github]
+	user = j2fly
+	token = 
+[color]
+	diff = auto
+[diff]
+	tool = vimdiff
+[mergetool "fugitive"]
+	cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
