@@ -1,47 +1,5 @@
 #!/usr/bin/env bash
 
-# usage()
-# {
-# cat << EOF
-# usage: $0 options
-# 
-# This script installs dotfiles son
-# 
-# OPTIONS:
-#    -h      Show this message
-#    -s      Skip the specified dotfile. Options are:
-#             - bundle
-#             - config (which is pianobar)
-#             - gemrc
-#             - gitconfig
-#             - gvimrc.local
-#             - janus.rake
-#             - oh-my-zsh
-#             - ssh
-#             - vim
-#             - zshrc
-# EOF
-# }
-# 
-# while getopts "hs" OPTION
-# do
-#      case $OPTION in
-#          h)
-#              usage
-#              exit 1
-#              ;;
-#          s)
-#              SKIP=$OPTARG
-#              ;;
-#          ?)
-#              usage
-#              exit
-#              ;;
-#      esac
-# done
-
-
-
 if [ -d ~/.j2fly-dotfiles ]
 then
   echo "You already have 'j2fly-dotfiles' installed. You'll need to remove ~/.j2fly-dotfiles if you want to install"
@@ -50,7 +8,6 @@ fi
 
 echo "Cloning dotfiles from github to your local home directory..."
 /usr/bin/env git clone https://github.com/j2fly/dotfiles.git ~/.j2fly-dotfiles
-
 
 
 echo "Createing the necessary directory structure to allow the dotfiles to be used."
