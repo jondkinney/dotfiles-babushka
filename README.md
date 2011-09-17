@@ -1,0 +1,1 @@
+These are the dotfiles that I use on my system. I'll be writing a shell script to put them into place and configure my system in a slick way
