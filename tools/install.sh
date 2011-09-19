@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-if [ -d ~/.j2fly-dotfiles ]
-then
-  echo "You already have 'j2fly-dotfiles' installed. You'll need to remove ~/.j2fly-dotfiles if you want to install"
-  exit
-fi
-
-echo "Cloning dotfiles from github to your local home directory..."
-/usr/bin/env git clone https://github.com/j2fly/dotfiles.git ~/.j2fly-dotfiles
+#if [ -d ~/.j2fly-dotfiles ]
+#then
+#  echo "You already have 'j2fly-dotfiles' installed. You'll need to remove ~/.j2fly-dotfiles if you want to install"
+#  exit
+#fi
+#
+#echo "Cloning dotfiles from github to your local home directory..."
+#/usr/bin/env git clone https://github.com/j2fly/dotfiles.git ~/.j2fly-dotfiles
 
 
 echo "Createing the necessary directory structure to allow the dotfiles to be used."
