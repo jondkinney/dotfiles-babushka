@@ -54,3 +54,5 @@ echo '\____//____/_/ /_/ \__, /  /_____/\____/\__/_/ /_/_/ \___/____/'
 echo '                  /____/'
 
 echo "\n\n All done...launch a new terminal session (open a new tab) to use the new dotfiles."
+
+touch ~/.j2fly-dotfiles/installed_successfully
