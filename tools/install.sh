@@ -38,7 +38,7 @@ do
   fi
   
   echo "Copying the j2fly-dotfiles template for ~/$dotfile to your home directory \n"
-  ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~/
+  ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~
 done
 
 
