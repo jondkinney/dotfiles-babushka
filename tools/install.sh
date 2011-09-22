@@ -1,13 +1,13 @@
 #!/bin/bash
 
 cd &&
-[ -d '.j2lfy-dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git .j2lfy-dotfiles &&
-find .j2fly-dotfiles/home -depth 1 | while read f; do
-  #[ "$f" == '.j2lfy-dotfiles/files/.git' ] ||
-  ([ "$f" == '.j2lfy-dotfiles/home/.oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
-  sudo ln -vsf "$f" .
+[ -d '/Users/`whoami`/.j2lfy-dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git /Users/`whoami`/.j2lfy-dotfiles &&
+find /Users/`whoami`/.j2fly-dotfiles/home -depth 1 | while read f; do
+  ln -vsf "$f" /Users/`whoami`/
 done
 
+sudo mv /Users/`whoami`/.ssh /Users/`whoami`/.backup.ssh
+sudo ln -nsf /Users/`whoami`/.j2fly-dotfiles/.ssh /Users/`whoami`/
 
 # #!/usr/bin/env bash
 # 
