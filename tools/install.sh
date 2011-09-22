@@ -6,8 +6,11 @@ find /Users/`whoami`/.j2fly-dotfiles/home -depth 1 | while read f; do
   ln -vsf "$f" /Users/`whoami`/
 done
 
-sudo mv /Users/`whoami`/.ssh /Users/`whoami`/.backup.ssh
-sudo ln -nsf /Users/`whoami`/.j2fly-dotfiles/.ssh /Users/`whoami`/
+if [ -d "~/.ssh" ]; then
+  sudo mv ~/.ssh ~/.backup-ssh
+if
+
+sudo ln -nsf /Users/`whoami`/.j2fly-dotfiles/.ssh /Users/`whoami`
 
 echo 'Successfully Installed'
 echo '       _____   ______          ____        __  _____ __'
