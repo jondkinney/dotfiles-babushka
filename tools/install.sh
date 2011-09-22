@@ -1,10 +1,11 @@
 #!/bin/bash
 
 cd &&
-[ -d '~/.j2lfy-dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git ~/.j2lfy-dotfiles &&
-find ~/.j2fly-dotfiles/home -depth 1 | while read f; do
+[ -d '.j2lfy-dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git .j2lfy-dotfiles &&
+find .j2fly-dotfiles/home -depth 1 | while read f; do
   #[ "$f" == '.j2lfy-dotfiles/files/.git' ] ||
   ([ "$f" == '.j2lfy-dotfiles/home/.oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
+  ([ "$f" == '.j2lfy-dotfiles/home/.ssh' ] && sudo ln -vsf "$f" .ssh) ||
   ln -vsf "$f" .
 done
 
