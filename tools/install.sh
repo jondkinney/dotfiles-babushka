@@ -10,23 +10,23 @@
 #/usr/bin/env git clone https://github.com/j2fly/dotfiles.git ~/.j2fly-dotfiles
 
 
-echo "Createing the necessary directory structure to allow the dotfiles to be used."
-
-directories=("~/.bundle" "~/.config/pianobar" "~/.oh-my-zsh/custom" "~/.ssh")
-for directory in "${directories[@]}"
-do
-  if [ ! -d $directory ]
-  then
-    echo "Creating the following directory $directory \n"
-    mkdir -p $directory
-  fi
-done
+# echo "Createing the necessary directory structure to allow the dotfiles to be used."
+# 
+# directories=("~/.bundle" "~/.config/pianobar" "~/.oh-my-zsh/custom")
+# for directory in "${directories[@]}"
+# do
+#   if [ ! -d $directory ]
+#   then
+#     echo "Creating the following directory $directory \n"
+#     mkdir -p $directory
+#   fi
+# done
 
 
 echo "Looking for existing dotfile configs...\n"
 
 # Move files to backup versions and install my j2fly-dotfiles versions
-dotfiles=(".bundle/config" ".config/pianobar/config" ".gemrc" ".gitconfig" ".gvimrc.local" ".janus.rake" ".oh-my-zsh/custom/j2fly_shortcuts.zsh" ".ssh")
+dotfiles=(".bundle" ".config" ".gemrc" ".gitconfig" ".gvimrc.local" ".janus.rake" ".oh-my-zsh" ".ssh")
 
 for dotfile in "${dotfiles[@]}"
 do
@@ -38,7 +38,7 @@ do
   fi
   
   echo "Copying the j2fly-dotfiles template for ~/$dotfile to your home directory \n"
-  ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~
+  ln -nsf /Users/`whoami`/.j2fly-dotfiles/home/$dotfile /Users/`whoami`/
 done
 
 
