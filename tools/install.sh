@@ -9,6 +9,16 @@ done
 sudo mv /Users/`whoami`/.ssh /Users/`whoami`/.backup.ssh
 sudo ln -nsf /Users/`whoami`/.j2fly-dotfiles/.ssh /Users/`whoami`/
 
+echo 'Successfully Installed'
+echo '       _____   ______          ____        __  _____ __'
+echo '      / /__ \ / __/ /__  __   / __ \____  / /_/ __(_) /___  _____'
+echo ' __  / /__/ // /_/ // / / /  / / / / __ \/ __/ /_/ / // _ \/ ___/'
+echo '/ /_/ // __// __/ // /_/ /  / /_/ / /_/ / /_/ __/ / //  __(__  )'
+echo '\____//____/_/ /_/ \__, /  /_____/\____/\__/_/ /_/_/ \___/____/'
+echo '                  /____/'
+echo ''
+
+
 # #!/usr/bin/env bash
 # 
 # #if [ -d ~/.j2fly-dotfiles ]
