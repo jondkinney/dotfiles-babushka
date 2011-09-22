@@ -44,7 +44,7 @@ done
 
 echo "Setting up the proper permissions for the ~/.ssh folder"
 chmod -R 700 /Users/`whoami`/.ssh
-chmod 600 /Users/`whoami`/.ssh/authorized_keys
+chmod 644 /Users/`whoami`/.ssh/authorized_keys
 
 echo '       _____   ______          ____        __  _____ __'
 echo '      / /__ \ / __/ /__  __   / __ \____  / /_/ __(_) /___  _____'
