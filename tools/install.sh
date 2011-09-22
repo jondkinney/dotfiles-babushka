@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd &&
-[ -d '/Users/`whoami`/.j2fly-dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git /Users/`whoami`/.j2fly-dotfiles &&
+[ -d "/Users/`whoami`/.j2fly-dotfiles" ] || git clone git://github.com/j2fly/dotfiles.git /Users/`whoami`/.j2fly-dotfiles &&
 find /Users/`whoami`/.j2fly-dotfiles/home -depth 1 | while read f; do
   ln -vsf "$f" /Users/`whoami`/
 done
