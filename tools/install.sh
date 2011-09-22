@@ -5,8 +5,7 @@ cd &&
 find .j2fly-dotfiles/home -depth 1 | while read f; do
   #[ "$f" == '.j2lfy-dotfiles/files/.git' ] ||
   ([ "$f" == '.j2lfy-dotfiles/home/.oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
-  ([ "$f" == '.j2lfy-dotfiles/home/.ssh' ] && sudo ln -vsf "$f" .ssh) ||
-  ln -vsf "$f" .
+  sudo ln -vsf "$f" .
 done
 
 
