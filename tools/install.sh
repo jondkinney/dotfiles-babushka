@@ -23,7 +23,6 @@ do
 done
 
 
-
 echo "Looking for existing dotfile configs...\n"
 
 # Move files to backup versions and install my j2fly-dotfiles versions
@@ -41,6 +40,11 @@ do
   echo "Copying the j2fly-dotfiles template for ~/.$dotfile to your home directory \n"
   ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~/.$dotfile
 done
+
+
+echo "Setting up the proper permissions for the ~/.ssh folder"
+chmod -R 700 /Users/`whoami`/.ssh
+chmod 600 /Users/`whoami`/.ssh/authorized_keys
 
 echo '       _____   ______          ____        __  _____ __'
 echo '      / /__ \ / __/ /__  __   / __ \____  / /_/ __(_) /___  _____'
