@@ -2,9 +2,9 @@
 
 cd &&
 [ -d '.j2lfy-dotfiles' ] || git clone git://github.com/dgoodlad/dotfiles.git .j2lfy-dotfiles &&
-find .j2lfy-dotfiles/home -depth 1 | while read f; do
+find .j2fly-dotfiles/home -depth 1 | while read f; do
   #[ "$f" == '.j2lfy-dotfiles/files/.git' ] ||
-  ([ "$f" == '.j2lfy-dotfiles/files/oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
+  ([ "$f" == '.j2lfy-dotfiles/home/.oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
   ln -vsf "$f" .
 done
 
