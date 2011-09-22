@@ -33,12 +33,11 @@ do
   if [ -f ~/$dotfile ] || [ -h ~/$dotfile ]
   then
     echo "Found ~/$dotfile Backing up to ~/$dotfile.pre-j2fly-dotfiles";
-    cp -r ~/$dotfile ~/$dotfile.pre-j2fly-dotfiles;
-    rm -r ~/$dotfile;
+    mv ~/$dotfile ~/$dotfile.bak;
   fi
   
   echo "Copying the j2fly-dotfiles template for ~/$dotfile to your home directory \n"
-  ln -nsf /Users/`whoami`/.j2fly-dotfiles/home/$dotfile /Users/`whoami`/
+  ln -nsf /Users/`whoami`/.j2fly-dotfiles/home/$dotfile /Users/`whoami`
 done
 
 
