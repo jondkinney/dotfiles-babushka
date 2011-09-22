@@ -26,19 +26,19 @@ done
 echo "Looking for existing dotfile configs...\n"
 
 # Move files to backup versions and install my j2fly-dotfiles versions
-dotfiles=("bundle/config" "config/pianobar/config" "gemrc" "gitconfig" "gvimrc.local" "janus.rake" "oh-my-zsh/custom/j2fly_shortcuts.zsh" "ssh")
+dotfiles=(".bundle/config" ".config/pianobar/config" ".gemrc" ".gitconfig" ".gvimrc.local" ".janus.rake" ".oh-my-zsh/custom/j2fly_shortcuts.zsh" ".ssh")
 
 for dotfile in "${dotfiles[@]}"
 do
-  if [ -f ~/.$dotfile ] || [ -h ~/.$dotfile ]
+  if [ -f ~/$dotfile ] || [ -h ~/$dotfile ]
   then
-    echo "Found ~/.$dotfile Backing up to ~/.$dotfile.pre-j2fly-dotfiles";
-    cp -r ~/.$dotfile ~/.$dotfile.pre-j2fly-dotfiles;
-    rm -r ~/.$dotfile;
+    echo "Found ~/$dotfile Backing up to ~/$dotfile.pre-j2fly-dotfiles";
+    cp -r ~/$dotfile ~/$dotfile.pre-j2fly-dotfiles;
+    rm -r ~/$dotfile;
   fi
   
-  echo "Copying the j2fly-dotfiles template for ~/.$dotfile to your home directory \n"
-  ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~/.$dotfile
+  echo "Copying the j2fly-dotfiles template for ~/$dotfile to your home directory \n"
+  ln -nsf ~/.j2fly-dotfiles/home/$dotfile ~/
 done
 
 
