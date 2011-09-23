@@ -1,0 +1,15 @@
+.*.swp
+tags
+.swo
+*.scratch.*
+.DS_Store
+.idea
+rerun.txt
+capybara-*.html
+pkg
+tmp/restart.txt
+.idea
+.viminfo
+.vim/.netrwhist
+.zsh-update
+.zsh_history
