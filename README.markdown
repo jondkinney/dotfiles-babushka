@@ -8,7 +8,7 @@ These are the dotfiles that I use on my system. I'll be writing a shell script t
 
   1. Install laptop  
   
-    bash -c "\`curl https://raw.github.com/j2fly/laptop/master/mac\`"
+        bash -c "\`curl https://raw.github.com/j2fly/laptop/master/mac\`"
 
 ## Other things to install
   
