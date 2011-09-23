@@ -11,9 +11,9 @@ if [ -d "/Users/`whoami`/.ssh" ]; then
   sudo rm -r ~/.ssh
 fi
 
-sudo ln -nsF /Users/`whoami`/.j2fly-dotfiles/.ssh /Users/`whoami`
+sudo ln -nsF /Users/`whoami`/.dotfiles/.ssh /Users/`whoami`
 
-touch /Users/`whoami`/.j2fly-dotfiles/installed_successfully
+touch /Users/`whoami`/.dotfiles/installed_successfully
 
 echo 'Successfully Installed'
 echo '       _____   ______          ____        __  _____ __'
