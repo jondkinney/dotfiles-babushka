@@ -7,10 +7,6 @@ find .dotfiles/files -depth 1 | while read f; do
   ln -vsf "$f" .
 done
 
-if [ -d "/Users/`whoami`/.ssh" ]; then
-  sudo rm -r ~/.ssh
-fi
-
 touch /Users/`whoami`/.dotfiles/installed_successfully
 
 echo 'Successfully Installed'
