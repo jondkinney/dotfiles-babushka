@@ -1,9 +1,10 @@
 #!/bin/bash
 
 cd &&
-[ -d "/Users/`whoami`/.j2fly-dotfiles" ] || git clone git://github.com/j2fly/dotfiles.git /Users/`whoami`/.j2fly-dotfiles &&
-find /Users/`whoami`/.j2fly-dotfiles/home -depth 1 | while read f; do
-  ln -vsf "$f" /Users/`whoami`/
+[ -d '.dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git .dotfiles &&
+find .dotfiles/files -depth 1 | while read f; do
+  ([ "$f" == '.dotfiles/files/oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
+  ln -vsf "$f" .
 done
 
 if [ -d "/Users/`whoami`/.ssh" ]; then
