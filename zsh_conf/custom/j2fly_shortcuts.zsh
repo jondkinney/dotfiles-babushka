@@ -25,6 +25,7 @@ alias rvm_install_shortcut='bash < <(curl -s https://rvm.beginrescueend.com/inst
 alias flush_dns='dscacheutil -flushcache'
 alias fixbrew='sudo chown -R `whoami` /usr/local'
 alias c='clear'
+alias rm_sym='find . ! -name . -prune -type l|xargs rm'
 
 # RUBY / RAILS
 # ------------
