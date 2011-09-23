@@ -7,7 +7,7 @@ find .dotfiles/files -depth 1 | while read f; do
   ln -vsf "$f" .
 done
 
-touch /Users/`whoami`/.dotfiles/installed_successfully
+touch /Users/`whoami`/.dotfiles/successful_install
 
 echo 'Successfully Installed'
 echo '       _____   ______          ____        __  _____ __'
