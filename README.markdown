@@ -7,7 +7,8 @@ These are the dotfiles that I use on my system. I'll be writing a shell script t
     - Alternatively you can try GCC For Lion here (get the latest): https://github.com/kennethreitz/osx-gcc-installer/downloads
 
   1. Install laptop  
-        bash -c "`curl https://raw.github.com/j2fly/laptop/master/mac`"
+  
+      bash -c "`curl https://raw.github.com/j2fly/laptop/master/mac`"
 
 ## Other things to install
   
