@@ -7,23 +7,7 @@ These are the dotfiles that I use on my system. I'll be writing a shell script t
     - Alternatively you can try GCC For Lion here (get the latest): https://github.com/kennethreitz/osx-gcc-installer/downloads
 
   1. Install laptop  
-  $> `bash < <(curl -s https://raw.github.com/j2fly/laptop/master/mac)`
-
-  1. Install Oh-My-ZSH  
-  $> `bash < <(curl -s https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)`
-  
-  1. Install dotfiles  
-  $> `bash < <(curl -s https://raw.github.com/j2fly/dotfiles/master/tools/install.sh)`
-  
-
-### Note: You can also run all three bash scripts above with:
-$> `bash < <(curl -s https://raw.github.com/j2fly/laptop/master/full_install)`
-
-
-## TODO (manual steps necessary to complete the install):
-  - Set GitHub Token in ~/.gitconfig
-  - Set PianoBar password in ~/.config/pianobar/config
-
+      $> bash -c "`curl https://raw.github.com/j2fly/laptop/master/mac`"
 
 ## Other things to install
   
