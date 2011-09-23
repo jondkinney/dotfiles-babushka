@@ -11,8 +11,6 @@ if [ -d "/Users/`whoami`/.ssh" ]; then
   sudo rm -r ~/.ssh
 fi
 
-sudo ln -nsF /Users/`whoami`/.dotfiles/.ssh /Users/`whoami`
-
 touch /Users/`whoami`/.dotfiles/installed_successfully
 
 echo 'Successfully Installed'
