@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# get them home first
+cd ~
+
 cd &&
-[ -d '~/.dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git ~/.dotfiles &&
-find ~/.dotfiles/files -depth 1 | while read f; do
-  ([ "$f" == '~/.dotfiles/files/oh-my-zsh' ] && ln -vsf "$f" ~/.oh-my-zsh) ||
+[ -d '.dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git .dotfiles &&
+find .dotfiles/files -depth 1 | while read f; do
+  ([ "$f" == '.dotfiles/files/oh-my-zsh' ] && ln -vsf "$f" .oh-my-zsh) ||
   ln -vsf "$f" .
 done
 
