@@ -27,6 +27,28 @@ alias fixbrew='sudo chown -R `whoami` /usr/local'
 alias c='clear'
 alias rm_sym='find . ! -name . -prune -type l|xargs rm'
 
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Empty the Trash
+alias emptytrash="rm -rfv ~/.Trash"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Disable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+# Enable Spotlight
+alias spoton="sudo mdutil -a -i on"
+
+
 # RUBY / RAILS
 # ------------
 # you need to use bundle exec before each command you run in a app controled by bundler so this alias helps make that easier
@@ -36,7 +58,7 @@ alias pc='pickler $*'
 alias migrate="rake db:migrate db:test:prepare"
 alias dbm='migrate'
 
-# Git Goggles
+# Git
 # -----------------
 alias gg='git goggles'
 # alias ggc='git goggles codereview'
