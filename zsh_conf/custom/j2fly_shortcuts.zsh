@@ -97,7 +97,7 @@ alias tk='tmux kill-session -t $*'
 alias to='tmuxinator open $*'
 alias ts='tmuxinator start $*'
 alias ml='tmuxinator list'
-
+alias cs='echo -n -e "\e[3J" && clear && exec zsh'
 
 # Documentation Shortcuts
 alias docs='cd /rails/bolstr/docs; subl .; open /Applications/DevDocs.app; b guard'
