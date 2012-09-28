@@ -30,4 +30,3 @@ source $ZSH/oh-my-zsh.sh
 #export TERM=screen-256color
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
