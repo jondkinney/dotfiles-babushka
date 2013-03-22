@@ -1,6 +1,0 @@
-[submodule "files/oh-my-zsh"]
-	path = files/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "files/.vim"]
-	path = files/.vim
-	url = https://github.com/carlhuda/janus.git
