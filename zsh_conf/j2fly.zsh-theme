@@ -16,9 +16,22 @@ function virtualenv_info {
 }
 
 
+# VIM MODE STUFF
+#---------------
+# if mode indicator wasn't setup by theme, define default
+if [[ "$MODE_INDICATOR" == "" ]]; then
+  MODE_INDICATOR="%{$fg_bold[red]%} <<%{$reset_color%}"
+fi
+
+function vi_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
+}
+# END VIM MODE STUFF
+
+
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
-$(virtualenv_info)$(prompt_char) '
+$(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -29,6 +42,7 @@ $(virtualenv_info)$(prompt_char) '
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
     RPROMPT='$(~/.rvm/bin/rvm-prompt)'
+    #RPROMPT='$(cat ~/.rbenv/version)'
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"

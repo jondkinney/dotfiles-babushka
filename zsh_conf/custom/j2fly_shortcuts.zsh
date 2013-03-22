@@ -1,7 +1,8 @@
 # Tunnels
 # -------
-alias ec2_tunnel_theda='ssh -L 3307:thedacareprod.cqgtmgitcxs6.us-east-1.rds.amazonaws.com:3306 theda-ec2'
-alias bbg_tunnel_theda='ssh -L 3307:ds608.blueboxgrid.com:3306 theda_prod_db'
+#alias ec2_tunnel_theda='ssh -L 3307:thedacareprod.cqgtmgitcxs6.us-east-1.rds.amazonaws.com:3306 theda-ec2'
+#alias bbg_tunnel_theda='ssh -L 3307:ds608.blueboxgrid.com:3306 theda_prod_db'
+alias bbg_tunnel_bolstr='ssh -L 54321:db01.c45431.blueboxgrid.com:5432 bolstr_db'
 
 # DB Stuff
 # --------
@@ -21,10 +22,12 @@ alias restartdbs='stopdbs;startdbs' # now both at once!
 # ------------
 alias goodbye='sudo shutdown -r now'
 alias uldb='sudo /usr/libexec/locate.updatedb' #update the location database
-alias rvm_install_shortcut='bash -s head < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)'
+alias rvm_install_shortcut='bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)'
 alias flush_dns='dscacheutil -flushcache'
 alias fixbrew='sudo chown -R `whoami` /usr/local'
+alias fixpow='rvm env . -- --env > .powenv'
 alias c='clear'
+alias clera='clear'
 alias rm_sym='find . ! -name . -prune -type l|xargs rm'
 
 # Directories
@@ -59,9 +62,8 @@ alias spoton="sudo mdutil -a -i on"
 # you need to use bundle exec before each command you run in a app controled by bundler so this alias helps make that easier
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
-alias pc='bundle exec pickler $*'
-alias rdm='bundle exec rake db:migrate $*'
-#alias migrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare"
+alias migrate="bundle exec rake db:migrate && rake db:test:prepare"
+alias rdm='bundle exec rake db:migrate'
 
 # Git
 # -----------------
@@ -71,47 +73,80 @@ alias ggc='git log -p --reverse master..'
 alias ggcc='git goggles codereview complete'
 alias -g bd='git diff --name-status'
 alias glg='git log --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
+alias glgch='git log $(git describe --tags `git rev-list --tags --max-count=1`)..HEAD --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias glgl='git log --no-merges --reverse --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias gt='git tag'
-alias gt_remote='git ls-remote --tags'
-alias gt_delete='git push origin :refs/tags/'
+alias gtl='git tag -l'
+alias gtlr='git ls-remote --tags'
 alias gwc='git whatchanged'
 alias gbm='git branch --merged'
 alias gbnm='git branch --no-merged'
 alias gmt='git mergetool'
 alias co_remote='ruby /rails/github/gg_utility/git_goggles_ruby_checkout.rb'
 alias prune_merged='ruby /rails/github/gg_utility/git_goggles_prune_merged.rb'
+alias ptl='bundle exec rake pt:list'
+alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
+alias gmnff='git merge --no-edit --no-ff $*'
+compdef gmnff=git
+alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; git push --tags'
+alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
+alias gbc='git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3 | tr -d '\n' | pbcopy'
+alias gp='git push;git push --tags'
 
 # Nocorrect Aliases
 # -----------------
-alias grb='nocorrect grb'
-alias rdm='nocorrect rvm'
+unsetopt correct_all
 
 # Apps
 # ----
 alias pandora='pianobar'
-alias vim='mvim -v'
 alias tl='tmux ls'
 alias ta='tmux attach -t $*'
 alias tk='tmux kill-session -t $*'
 alias to='tmuxinator open $*'
-alias ts='tmuxinator start $*'
+alias ts='tmuxinator start $@'
 alias ml='tmuxinator list'
+alias rp='relish push bolstr/rails-app'
+
 alias cs='echo -n -e "\e[3J" && clear && exec zsh'
+
 
 # Documentation Shortcuts
 alias docs='cd /rails/bolstr/docs; subl .; open /Applications/DevDocs.app; b guard'
 
 # Project Shortcuts
 # -----------------
+alias app='cd /rails/bolstr/bolstr; setTerminalText 0 App; tmuxinator start app'
+alias cms='cd /rails/bolstr/public; setTerminalText 0 CMS; tmuxinator start cms'
 alias bolstr='cd /rails/bolstr/bolstr'
 alias public='cd /rails/bolstr/public'
 
 # VIM
 # ---
-alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
+alias vim="stty stop '' -ixoff ; mvim -v"
+# `Frozing' tty, so after any command terminal settings will be restored
+ttyctl -f
+
+alias ev="cd /rails/github/dev_setup_gist; stty stop '' -ixoff; mvim -v .vimrc_main"
+alias eb="cd ~/.vim/bundles;"
+alias jonvim='stty stop '' -ixoff ; mvim -v ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
 # -----
-alias rc='bundle exec rails console $*'
-alias rcdb='bundle exec rails dbconsole $*'
+alias rc='bundle exec pry -r ./config/environment'
+alias rdbc='rails dbconsole'
+
+# $1 = type; 0 - both, 1 - tab, 2 - title
+# rest = text
+setTerminalText () {
+    # echo works in bash & zsh
+    local mode=$1 ; shift
+    echo -ne "\033]$mode;$@\007"
+}
+nt         () { setTerminalText 0 $@; }
+stt_tab    () { setTerminalText 1 $@; }
+stt_title  () { setTerminalText 2 $@; }
+
+
+# Edit this file
+alias ea="cd ~/.oh-my-zsh/custom/; stty stop '' -ixoff; mvim -v j2fly_shortcuts.zsh"
