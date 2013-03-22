@@ -6,10 +6,10 @@ cd ~
 cd &&
 [ -d '.dotfiles' ] || git clone git://github.com/j2fly/dotfiles.git .dotfiles &&
 find .dotfiles/files -depth 1 | while read f; do
-  ln -vsf "$f" .
+  ln -vnsf "$f" $HOME
 done
 
-ln -vsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
+ln -vnsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
 
 touch /Users/`whoami`/.dotfiles/successful_install
 
