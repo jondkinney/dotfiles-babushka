@@ -73,7 +73,7 @@ alias ggc='git log -p --reverse master..'
 alias ggcc='git goggles codereview complete'
 alias -g bd='git diff --name-status'
 alias glg='git log --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
-alias glgch='git log $(git describe --tags `git rev-list --tags --max-count=1`)..HEAD --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
+alias glgwc='git log $(git describe --tags `git rev-list --tags --max-count=1`)..HEAD --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias glgl='git log --no-merges --reverse --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias gt='git tag'
 alias gtl='git tag -l'
@@ -92,6 +92,9 @@ alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; g
 alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
 alias gbc='git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3 | tr -d '\n' | pbcopy'
 alias gp='git push;git push --tags'
+alias gs='git stash'
+alias gsp='git stash pop'
+alias gd='git diff'
 
 # Nocorrect Aliases
 # -----------------
