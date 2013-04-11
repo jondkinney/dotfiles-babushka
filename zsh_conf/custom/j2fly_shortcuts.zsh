@@ -44,7 +44,8 @@ alias spoton="sudo mdutil -a -i on"    # Enable Spotlight
 
 # RUBY / RAILS
 # ------------
-# you need to use bundle exec before each command you run in a app controled by bundler so this alias helps make that easier
+# you need to use bundle exec before each command you run in a app controled by
+# bundler so this alias helps make that easier
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
 alias rdm='bundle exec rake db:migrate'
@@ -129,6 +130,11 @@ nt         () { setTerminalText 0 $@; }
 stt_tab    () { setTerminalText 1 $@; }
 stt_title  () { setTerminalText 2 $@; }
 
+# Store an empty TODO: commit in git log that needs to be rebased out. Short,
+# quick reminders
+todo() {
+  git commit --allow-empty -m "TODO: $*"
+}
 
 # Edit this file
 alias ea="cd ~/.oh-my-zsh/custom/; stty stop '' -ixoff; mvim -v j2fly_shortcuts.zsh"
