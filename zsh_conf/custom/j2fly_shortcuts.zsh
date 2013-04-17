@@ -104,6 +104,8 @@ alias cms='cd /rails/bolstr/public; setTerminalText 0 CMS; tmuxinator start cms'
 alias bolstr='cd /rails/bolstr/bolstr'
 alias public='cd /rails/bolstr/public'
 
+alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions; tmuxinator start mvc'
+
 # VIM
 # ---
 alias vim="stty stop '' -ixoff ; mvim -v"
@@ -118,6 +120,8 @@ alias jonvim='mvim -v ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.tx
 # -----
 alias rc='bundle exec pry -r ./config/environment'
 alias rdbc='rails dbconsole'
+
+alias webserver='python -m SimpleHTTPServer'
 
 # $1 = type; 0 - both, 1 - tab, 2 - title
 # rest = text
