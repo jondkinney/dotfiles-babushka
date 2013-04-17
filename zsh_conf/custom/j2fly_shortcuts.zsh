@@ -118,7 +118,7 @@ alias jonvim='mvim -v ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.tx
 
 # RAILS
 # -----
-alias rc='bundle exec pry -r ./config/environment'
+alias rc='bundle exec rails console'
 alias rdbc='rails dbconsole'
 
 alias webserver='python -m SimpleHTTPServer'

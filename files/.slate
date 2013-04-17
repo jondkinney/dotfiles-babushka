@@ -68,14 +68,28 @@ layout 3monitors 'Colloquy'              ${1-topleft}
 layout 3monitors 'Sparrow'               ${2-full}
 layout 3monitors 'Tweetbot'              ${1-tweetbot}
 
+# 4 Monitor layout
+layout 4monitors 'iTerm'                 ${2-full}
+layout 4monitors 'Safari'                ${2-full}
+layout 4monitors 'Google Chrome'         ${1-browser}
+layout 4monitors 'Google Chrome Canary'  ${1-right}
+layout 4monitors 'MacVim'                ${1-full}
+layout 4monitors 'iTunes'                ${3-full}
+layout 4monitors 'Pivotal Tracker'       ${3-full}
+layout 4monitors 'HipChat'               ${1-bottomleft}
+layout 4monitors 'Colloquy'              ${1-topleft}
+layout 4monitors 'Sparrow'               ${2-full}
+layout 4monitors 'Tweetbot'              ${1-tweetbot}
+
 
 # Default Layouts
 default 1monitor  resolutions:${mon-laptop}
 default 3monitors resolutions:${mon-dell};${mon-cinema};${mon-samsung};
-default 4monitors resolutions:${mon-laptop};${mon-dell};${mon-cinema};${mon-samsung};
+default 4monitors resolutions:${mon-dell};${mon-laptop};${mon-cinema};${mon-samsung};
 default 5monitors resolutions:${mon-dell};${mon-cinema};${mon-samsung};${mon-booth};${mon-lenovo};
 
 bind pad* layout 3monitors
+bind pad/ layout 4monitors
 
 bind e:cmd  ${showNormalHint}
 
