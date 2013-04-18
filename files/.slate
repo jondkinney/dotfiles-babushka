@@ -91,7 +91,7 @@ default 5monitors resolutions:${mon-dell};${mon-cinema};${mon-samsung};${mon-boo
 bind pad* layout 3monitors
 bind pad/ layout 4monitors
 
-bind e:cmd  ${showNormalHint}
+#bind e:cmd  ${showNormalHint}
 
 # ======================================
 # The HYPER key
