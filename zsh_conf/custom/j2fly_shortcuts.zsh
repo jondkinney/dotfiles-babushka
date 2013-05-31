@@ -73,7 +73,7 @@ alias gmnff='git merge --no-edit --no-ff $*'
 compdef gmnff=git
 alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; git push --tags'
 alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
-alias gbc='git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3 | tr -d '\n' | pbcopy'
+alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy'
 alias gp='git push;git push --tags'
 alias gs='git stash'
 alias gsp='git stash pop'
@@ -108,9 +108,7 @@ alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions
 
 # VIM
 # ---
-alias vim="stty stop '' -ixoff ; mvim -v"
-# `Frozing' tty, so after any command terminal settings will be restored
-ttyctl -f
+alias vim="mvim -v"
 
 alias ev="cd /rails/github/dev_setup_gist; mvim -v .vimrc_main"
 alias eb="cd ~/.vim/bundles;"
@@ -141,4 +139,4 @@ todo() {
 }
 
 # Edit this file
-alias ea="cd ~/.oh-my-zsh/custom/; stty stop '' -ixoff; mvim -v j2fly_shortcuts.zsh"
+alias ea="cd ~/.oh-my-zsh/custom/; mvim -v j2fly_shortcuts.zsh"

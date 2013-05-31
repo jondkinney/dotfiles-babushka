@@ -22,7 +22,7 @@ export ARCHFLAGS="-arch x86_64"
 
 #export POW_DOMAINS=dev,local,test
 
-plugins=(git git-flow rails textmate ruby cap brew gem github mysql osx vagrant lol vim_mode history-substring-search)
+plugins=(git git-flow rails ruby cap brew gem github osx)
 
 source $ZSH/oh-my-zsh.sh
 
