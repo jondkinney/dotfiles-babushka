@@ -73,6 +73,7 @@ alias gmnff='git merge --no-edit --no-ff $*'
 compdef gmnff=git
 alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; git push --tags'
 alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
+alias mts='git checkout staging; git merge --no-edit --no-ff develop; git push; git push --tags'
 alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy'
 alias gp='git push;git push --tags'
 alias gs='git stash'
@@ -108,11 +109,13 @@ alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions
 
 # VIM
 # ---
-alias vim="mvim -v"
+#alias vim="mvim -v"
+alias em="vim `git status | grep modified | awk '{print $3}' | tr '\n' ' '`"
+#alias em="vim `git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '`"
 
-alias ev="cd /rails/github/dev_setup_gist; mvim -v .vimrc_main"
-alias eb="cd ~/.vim/bundles;"
-alias jonvim='mvim -v ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
+alias ev="cd /rails/github/dev_setup_gist; vim .vimrc_main"
+alias evb="cd ~/.vim/bundles;"
+alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
 # -----
@@ -139,4 +142,32 @@ todo() {
 }
 
 # Edit this file
-alias ea="cd ~/.oh-my-zsh/custom/; mvim -v j2fly_shortcuts.zsh"
+alias ea="cd ~/.oh-my-zsh/custom/; vim j2fly_shortcuts.zsh"
+
+#Source this file
+alias aup="source ~/.oh-my-zsh/custom/j2fly_shortcuts.zsh"
+
+
+
+
+typeset -Ag abbreviations
+
+abbreviations=(
+    "em"      "vim `git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '`"
+)
+
+magic-abbrev-expand() {
+     local left prefix
+     left=$(echo -nE "$LBUFFER" | sed -e "s/[_a-zA-Z0-9]*$//")
+     prefix=$(echo -nE "$LBUFFER" | sed -e "s/.*[^_a-zA-Z0-9]\([_a-zA-Z0-9]*\)$/\1/")
+     LBUFFER=$left${abbreviations[$prefix]:-$prefix}" "
+}
+
+no-magic-abbrev-expand() {
+    LBUFFER+=' '
+}
+
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey   " "    magic-abbrev-expand
+bindkey   "^x "  no-magic-abbrev-expand
