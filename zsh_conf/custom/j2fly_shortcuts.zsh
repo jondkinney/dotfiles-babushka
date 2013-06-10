@@ -124,10 +124,10 @@ alias rdbc='rails dbconsole'
 
 # CAPISTRANO
 # ----------
-alias ds='bundle exec cap deploy'
-alias dsm='bundle exec cap deploy:migrations'
-alias dp='bundle exec cap production deploy'
-alias dpm='bundle exec cap production deploy:migrations'
+alias ds='git checkout staging; bundle exec cap deploy'
+alias dsm='git checkout staging; bundle exec cap deploy:migrations'
+alias dp='git checkout master; bundle exec cap production deploy'
+alias dpm='git checkout master; bundle exec cap production deploy:migrations'
 
 
 alias webserver='python -m SimpleHTTPServer'
