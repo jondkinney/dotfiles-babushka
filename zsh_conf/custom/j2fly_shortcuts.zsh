@@ -42,14 +42,6 @@ alias desktop_white="open /Users/macpro/Dropbox/Pictures/Desktop\ Backgrounds/Wh
 alias spotoff="sudo mdutil -a -i off"  # Disable Spotlight
 alias spoton="sudo mdutil -a -i on"    # Enable Spotlight
 
-# RUBY / RAILS
-# ------------
-# you need to use bundle exec before each command you run in a app controled by
-# bundler so this alias helps make that easier
-alias b='bundle exec $*'
-alias p='bundle exec powder $*'
-alias rdm='bundle exec rake db:migrate'
-
 # Git
 # -----------------
 alias gg='git goggles'
@@ -105,6 +97,8 @@ alias app='cd /rails/bolstr/bolstr; setTerminalText 0 App; tmuxinator start app'
 alias cms='cd /rails/bolstr/public; setTerminalText 0 CMS; tmuxinator start cms'
 alias bolstr='cd /rails/bolstr/bolstr'
 alias public='cd /rails/bolstr/public'
+alias dot='cd ~/.dotfiles'
+alias pdot='cd ~/.private-dotfiles'
 
 alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions; tmuxinator start mvc'
 
@@ -120,8 +114,21 @@ alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
 # -----
+# you need to use bundle exec before each command you run in a app controled by
+# bundler so this alias helps make that easier
+alias b='bundle exec $*'
+alias p='bundle exec powder $*'
+alias rdm='bundle exec rake db:migrate'
 alias rc='bundle exec rails console'
 alias rdbc='rails dbconsole'
+
+# CAPISTRANO
+# ----------
+alias ds='bundle exec cap deploy'
+alias dsm='bundle exec cap deploy:migrations'
+alias dp='bundle exec cap production deploy'
+alias dpm='bundle exec cap production deploy:migrations'
+
 
 alias webserver='python -m SimpleHTTPServer'
 
