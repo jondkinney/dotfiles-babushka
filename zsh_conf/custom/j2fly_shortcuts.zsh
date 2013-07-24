@@ -57,15 +57,15 @@ alias gtlr='git ls-remote --tags'
 alias gbm='git branch --merged'
 alias gbnm='git branch --no-merged'
 alias gmt='git mergetool'
-alias co_remote='ruby /rails/gg_utility/git_goggles_ruby_checkout.rb'
-alias prune_merged='ruby /rails/gg_utility/git_goggles_prune_merged.rb'
+alias co_remote='/rails/gg_utility/git_goggles_ruby_checkout.rb'
+alias prune_merged='/rails/gg_utility/git_goggles_prune_merged.rb'
 alias ptl='bundle exec rake pt:list'
 alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
 alias gmnff='git merge --no-edit --no-ff $*'
 compdef gmnff=git
 alias mts='git checkout staging; git merge --no-edit --no-ff develop; git push; git push --tags'
 alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; git push --tags'
-alias mte='mts;mtm'
+alias mte='git push origin develop;mts;mtm'
 alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
 alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy'
 alias gp='git push;git push --tags'
@@ -107,7 +107,7 @@ alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions
 
 # VIM
 # ---
-#alias vim="mvim -v"
+alias vim="mvim -v"
 alias em="vim `git status | grep modified | awk '{print $3}' | tr '\n' ' '`"
 #alias em="vim `git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '`"
 

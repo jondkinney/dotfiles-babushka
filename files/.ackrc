@@ -3,10 +3,16 @@
 --ignore-dir=HTML_DEMOS
 --ignore-dir=public/demos
 --ignore-dir=public/shots
+--ignore-dir=production_data
+--ignore-dir=accredited_investor_questionnaires
+--ignore-dir=docusign_docs
+--ignore-dir=cookbooks
+--ignore-dir=vim_sessions
 --ignore-dir=coverage
 --ignore-dir=tmp
 --ignore-dir=compiled
 --ignore-dir=gems
+--ignore-dir=.idea
 --type-set=coffee=.coffee
 --type-set=json=.json
 --type-set=feature=.feature
