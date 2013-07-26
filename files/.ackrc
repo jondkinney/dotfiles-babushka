@@ -2,6 +2,8 @@
 --ignore-dir=cache
 --ignore-dir=HTML_DEMOS
 --ignore-dir=public/demos
+--ignore-dir=public/system
+--ignore-dir=public/images
 --ignore-dir=public/shots
 --ignore-dir=production_data
 --ignore-dir=accredited_investor_questionnaires

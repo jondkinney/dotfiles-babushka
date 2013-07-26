@@ -108,8 +108,6 @@ alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions
 # VIM
 # ---
 alias vim="mvim -v"
-alias em="vim `git status | grep modified | awk '{print $3}' | tr '\n' ' '`"
-#alias em="vim `git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '`"
 
 alias ev="cd /rails/github/dev_setup_gist; vim .vimrc_main"
 alias evb="cd ~/.vim/bundles;"
@@ -164,7 +162,7 @@ alias aup="source ~/.oh-my-zsh/custom/j2fly_shortcuts.zsh"
 typeset -Ag abbreviations
 
 abbreviations=(
-    "em"      "vim `git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '`"
+    "em"      "vim \`git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '\`"
 )
 
 magic-abbrev-expand() {
