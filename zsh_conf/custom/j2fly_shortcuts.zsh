@@ -109,7 +109,7 @@ alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions
 # ---
 alias vim="mvim -v"
 
-alias ev="cd /rails/github/dev_setup_gist; vim .vimrc_main"
+alias ev="cd /rails/github/dev_setup_gist; vim vimrc_main"
 alias evb="cd ~/.vim/bundles;"
 alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
@@ -130,6 +130,9 @@ alias dsm='git checkout staging; bundle exec cap deploy:migrations'
 alias dp='git checkout master; bundle exec cap production deploy'
 alias dpm='git checkout master; bundle exec cap production deploy:migrations'
 
+# PAIR
+#-----
+alias unpair='gh-auth remove $*'
 
 alias webserver='python -m SimpleHTTPServer'
 
@@ -148,6 +151,22 @@ stt_title  () { setTerminalText 2 $@; }
 # quick reminders
 todo() {
   git commit --allow-empty -m "TODO: $*"
+}
+
+# after installing vim, this simplifies getting my setup symlinked back to the
+# dev_setup_gist
+symlink_dev_setup() {
+  rm /Users/jon/.vimrc
+  rm /Users/jon/.vim/vimrc_main
+  rm /Users/jon/.vim/vundle
+  rm /Users/jon/.vim/snippets/_.snippets
+  rm /Users/jon/.tmux.conf
+
+  ln -nsf /rails/github/dev_setup_gist/.vimrc /Users/jon
+  ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim
+  ln -nsf /rails/github/dev_setup_gist/vundle /Users/jon/.vim
+  ln -nsf /rails/github/dev_setup_gist/_.snippets /Users/jon/.vim/snippets
+  ln -nsf /rails/github/dev_setup_gist/.tmux.conf /Users/jon
 }
 
 # Edit this file
