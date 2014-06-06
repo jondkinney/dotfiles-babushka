@@ -7,8 +7,10 @@
 # ------------------------------------------------------------------------------
 
 function prompt_char {
+    ##### You break flootty
     git branch >/dev/null 2>/dev/null && echo '±' && return
     echo '○'
+    ##### End you break flootty
 }
 
 function virtualenv_info {
@@ -41,15 +43,18 @@ $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-    RPROMPT='$(~/.rvm/bin/rvm-prompt)'
+    RPROMPT='$(~/.rvm/bin/rvm-prompt)' #you break flootty
+    #RPROMPT=''
     #RPROMPT='$(cat ~/.rbenv/version)'
 
+    # you break flootty
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
     ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
     ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
     ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
     ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+    # end you break flootty
 else
     PROMPT='[%n@%m:%~$(git_prompt_info)]
 %# '

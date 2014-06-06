@@ -88,26 +88,29 @@ default 3monitors resolutions:${mon-dell};${mon-cinema};${mon-samsung};
 default 4monitors resolutions:${mon-dell};${mon-laptop};${mon-cinema};${mon-samsung};
 default 5monitors resolutions:${mon-dell};${mon-cinema};${mon-samsung};${mon-booth};${mon-lenovo};
 
-bind pad* layout 3monitors
-bind pad/ layout 4monitors
-
-#bind e:cmd  ${showNormalHint}
-
 # ======================================
 # The HYPER key
 # ======================================
 
 alias hyper ctrl;shift;alt;cmd
 
+#bind pad* layout 3monitors
+bind backslash:${hyper} layout 3monitors
+bind pad/ layout 4monitors
+
+#bind e:cmd  ${showNormalHint}
+
 bind return:${hyper} grid padding:5 ${mon-cinema}:6,2 ${mon-dell}:8,3
 
 # Location bindings
-bind h:${hyper} ${lefthalf}
-bind j:${hyper} push bottom bar-resize:screenSizeY/2
-bind k:${hyper} push top bar-resize:screenSizeY/2
-bind l:${hyper} ${righthalf}
-bind f:${hyper} ${full}
+#bind h:${hyper} ${lefthalf}
+#bind j:${hyper} push bottom bar-resize:screenSizeY/2
+#bind k:${hyper} push top bar-resize:screenSizeY/2
+#bind l:${hyper} ${righthalf}
+#bind f:${hyper} ${full}
 
 # Move between screens
-bind right:cmd;alt throw prev
-bind left:cmd;alt throw next
+#bind right:cmd;alt throw prev
+#bind left:cmd;alt throw next
+bind right:${hyper} throw prev
+bind left:${hyper} throw next

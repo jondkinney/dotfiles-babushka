@@ -7,6 +7,17 @@ export RUBY_FREE_MIN=500000
 export RUBY_HEAP_MIN_SLOTS=40000
 # end Ruby optimizations
 
+#Option 2
+#export RUBY_HEAP_MIN_SLOTS=2000000
+#export RUBY_HEAP_FREE_MIN=20000
+#export RUBY_GC_MALLOC_LIMIT=100000000
+
+#Option 3
+#export RUBY_GC_MALLOC_LIMIT=90000000
+#export RUBY_FREE_MIN=200000
+
+export PIVOTAL_TOKEN='5b12651ad30e4d75272d09176c42b172'
+
 #Git options
 GIT_MERGE_AUTOEDIT=no
 export GIT_MERGE_AUTOEDIT
@@ -20,13 +31,21 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
-plugins=(git git-flow rails ruby cap brew gem github osx)
+plugins=(git git-flow rails ruby cap brew gem github osx globalalias)
 
 source $ZSH/oh-my-zsh.sh
 
-#export TERM=screen-256color
-
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-#. /Users/jon/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
+bindkey -v
+
+function zle-keymap-select {
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward

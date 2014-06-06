@@ -1,6 +1,8 @@
 --smart-case
 --ignore-dir=cache
 --ignore-dir=HTML_DEMOS
+--ignore-dir=log
+--ignore-dir=db/migrate
 --ignore-dir=public/demos
 --ignore-dir=public/system
 --ignore-dir=public/images
@@ -15,6 +17,8 @@
 --ignore-dir=compiled
 --ignore-dir=gems
 --ignore-dir=.idea
+--ignore-file=is:tags
+--ignore-file=is:.zenflow-log
 --type-set=coffee=.coffee
 --type-set=json=.json
 --type-set=feature=.feature

@@ -1,6 +1,7 @@
 # Tunnels
 # -------
-alias bbg_tunnel_bolstr='ssh -L 54321:db01.c45431.blueboxgrid.com:5432 bolstr_db'
+alias tunnel_bbg_production_bolstr='ssh -L 54321:db01.c45431.blueboxgrid.com:5432 db'
+alias tunnel_trista='ssh -L 3307:tristakleinphotography.com:3306 trista'
 
 # DB Stuff
 # --------
@@ -15,6 +16,7 @@ alias mysqlstop='mysql.server stop'
 alias startdbs='pgstart;mysqlstart'
 alias stopdbs='pgstop;mysqlstop'
 alias restartdbs='stopdbs;startdbs'
+alias redis='redis-server /usr/local/etc/redis.conf'
 
 # System Level
 # ------------
@@ -60,18 +62,19 @@ alias gmt='git mergetool'
 alias co_remote='/rails/gg_utility/git_goggles_ruby_checkout.rb'
 alias prune_merged='/rails/gg_utility/git_goggles_prune_merged.rb'
 alias ptl='bundle exec rake pt:list'
+alias pt='pivotal_tools --project-index=1'
 alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
 alias gmnff='git merge --no-edit --no-ff $*'
 compdef gmnff=git
-alias mts='git checkout staging; git merge --no-edit --no-ff develop; git push; git push --tags'
-alias mtm='git checkout master; git merge --no-edit --no-ff develop; git push; git push --tags'
-alias mte='git push origin develop;mts;mtm'
-alias mtd='git checkout develop; git merge --no-edit --no-ff master; git push; git push --tags'
+alias mmts='git checkout staging; git merge --no-edit --no-ff master; git push; git push --tags'
+alias mmtp='git checkout production; git merge --no-edit --no-ff master; git push; git push --tags'
+alias mmte='mmts;mmtp'
 alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy'
 alias gp='git push;git push --tags'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias gd='git diff'
+alias zff='zenflow feature finish'
 
 # Nocorrect Aliases
 # -----------------
@@ -87,6 +90,7 @@ alias to='tmuxinator open $*'
 alias ts='tmuxinator start $@'
 alias ml='tmuxinator list'
 alias rp='relish push bolstr/rails-app'
+alias push_cukes='bundle exec rake gitnesse:push'
 
 # Documentation Shortcuts
 alias docs='cd /rails/bolstr/docs; subl .; open /Applications/DevDocs.app; b guard'
@@ -95,22 +99,34 @@ alias docs='cd /rails/bolstr/docs; subl .; open /Applications/DevDocs.app; b gua
 # -----------------
 alias app='cd /rails/bolstr/bolstr; setTerminalText 0 App; tmuxinator start app'
 alias cms='cd /rails/bolstr/public; setTerminalText 0 CMS; tmuxinator start cms'
+alias fans='cd /rails/github/fans-park-here; setTerminalText 0 Fans; tmuxinator start fans'
+alias ligature='cd /rails/github/ligature; setTerminalText 0 Ligature; tmuxinator start ligature'
+alias mvc='cd /rails/clients/moulding_visions; setTerminalText 0 MVC; tmuxinator start mvc'
+alias trista='cd /rails/clients/trista; setTerminalText 0 TRISTA; tmuxinator start trista'
+
 alias bolstr='cd /rails/bolstr/bolstr'
-alias dev='git checkout develop'
-alias sta='git checkout staging'
-alias mas='git checkout master'
 alias public='cd /rails/bolstr/public'
 alias dot='cd ~/.dotfiles'
 alias pdot='cd ~/.private-dotfiles'
+alias gcopy='cd /rails/bolstr; trash bolstr_copy; cp -r bolstr bolstr_copy; cd bolstr_copy;'
 
-alias mvc='cd /rails/github/moulding_visions; setTerminalText 0 Moulding Visions; tmuxinator start mvc'
+alias dev='git checkout develop'
+alias sta='git checkout staging'
+alias prd='git checkout production'
+alias mas='git checkout master'
 
 # VIM
 # ---
-alias vim="mvim -v"
+alias vim='mvim -v'
+#alias vim='vim --servername jdkbolstr'
+alias vin='vim +RecentNotes'
+alias vbi='vim +BundleInstall +qall'
+alias vbe='vim ~/.vim/vundle'
+alias vbc='vim +BundleClean +qall'
+alias gn='python /rails/github/geeknote/geeknote.py'
 
-alias ev="cd /rails/github/dev_setup_gist; vim vimrc_main"
-alias evb="cd ~/.vim/bundles;"
+alias ev='cd /rails/github/dev_setup_gist; vim vimrc_main'
+alias evb='cd ~/.vim/bundles;'
 alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
@@ -119,7 +135,7 @@ alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 # bundler so this alias helps make that easier
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
-alias rdm='bundle exec rake db:migrate'
+alias rdm='rake db:migrate'
 alias rc='bundle exec rails console'
 alias rdbc='rails dbconsole'
 
@@ -127,8 +143,8 @@ alias rdbc='rails dbconsole'
 # ----------
 alias ds='git checkout staging; bundle exec cap deploy'
 alias dsm='git checkout staging; bundle exec cap deploy:migrations'
-alias dp='git checkout master; bundle exec cap production deploy'
-alias dpm='git checkout master; bundle exec cap production deploy:migrations'
+alias dp='git checkout production; bundle exec cap production deploy'
+alias dpm='git checkout production; bundle exec cap production deploy:migrations'
 
 # PAIR
 #-----
@@ -170,18 +186,17 @@ symlink_dev_setup() {
 }
 
 # Edit this file
-alias ea="cd ~/.oh-my-zsh/custom/; vim j2fly_shortcuts.zsh"
+alias ea='cd ~/.oh-my-zsh/custom/; vim j2fly_shortcuts.zsh'
 
 #Source this file
-alias aup="source ~/.oh-my-zsh/custom/j2fly_shortcuts.zsh"
-
+alias aup='source /Users/jon/.oh-my-zsh/custom/j2fly_shortcuts.zsh'
 
 
 
 typeset -Ag abbreviations
 
 abbreviations=(
-    "em"      "vim \`git status --porcelain | sed -ne 's/^ M //p' | tr '\n' ' '\`"
+    "em"      "vim \`git status --porcelain | sed -ne 's/^ M //p' -ne 's/^?? //p' | tr '\n' ' '\`"
 )
 
 magic-abbrev-expand() {
