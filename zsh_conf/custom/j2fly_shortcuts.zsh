@@ -97,12 +97,15 @@ alias docs='cd /rails/bolstr/docs; subl .; open /Applications/DevDocs.app; b gua
 
 # Project Shortcuts
 # -----------------
-alias app='cd /rails/bolstr/bolstr; setTerminalText 0 App; tmuxinator start app'
-alias cms='cd /rails/bolstr/public; setTerminalText 0 CMS; tmuxinator start cms'
-alias fans='cd /rails/github/fans-park-here; setTerminalText 0 Fans; tmuxinator start fans'
+alias b_app='cd /rails/bolstr/bolstr; setTerminalText 0 Bolstr App; tmuxinator start b_app'
+alias b_cms='cd /rails/bolstr/public; setTerminalText 0 Bolstr CMS; tmuxinator start b_cms'
+alias fph='cd /rails/fans-park-here; setTerminalText 0 FPH; tmuxinator start fph'
 alias ligature='cd /rails/github/ligature; setTerminalText 0 Ligature; tmuxinator start ligature'
 alias mvc='cd /rails/clients/moulding_visions; setTerminalText 0 MVC; tmuxinator start mvc'
 alias trista='cd /rails/clients/trista; setTerminalText 0 TRISTA; tmuxinator start trista'
+alias allovue='cd /rails/allovue; setTerminalText 0 Allovue; tmuxinator start allovue'
+alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinator start mailtank'
+alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
 
 alias bolstr='cd /rails/bolstr/bolstr'
 alias public='cd /rails/bolstr/public'
@@ -110,15 +113,14 @@ alias dot='cd ~/.dotfiles'
 alias pdot='cd ~/.private-dotfiles'
 alias gcopy='cd /rails/bolstr; trash bolstr_copy; cp -r bolstr bolstr_copy; cd bolstr_copy;'
 
-alias dev='git checkout develop'
+alias dev='git checkout development'
 alias sta='git checkout staging'
 alias prd='git checkout production'
 alias mas='git checkout master'
 
 # VIM
 # ---
-alias vim='mvim -v'
-#alias vim='vim --servername jdkbolstr'
+#alias vim='mvim -v'
 alias vin='vim +RecentNotes'
 alias vbi='vim +BundleInstall +qall'
 alias vbe='vim ~/.vim/vundle'
@@ -135,7 +137,7 @@ alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 # bundler so this alias helps make that easier
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
-alias rdm='rake db:migrate'
+alias rdm='bundle exec rake db:migrate'
 alias rc='bundle exec rails console'
 alias rdbc='rails dbconsole'
 
