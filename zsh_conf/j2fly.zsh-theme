@@ -13,6 +13,16 @@ function prompt_char {
     ##### End you break flootty
 }
 
+function pair_name {
+    string=`git config --get user.initials 2>/dev/null`;
+    if [[ "$string" == '' ]] ; then
+        echo `whoami`;
+    else
+        name=${string// //}
+        echo $name
+    fi
+}
+
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
@@ -32,7 +42,9 @@ function vi_mode_prompt_info() {
 
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
-    PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
+#    PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
+#$(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
+    PROMPT='%{$fg[magenta]%}$(pair_name)%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
 $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
@@ -76,3 +88,4 @@ else
     ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
     ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
 fi
+i
