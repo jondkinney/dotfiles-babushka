@@ -10,6 +10,7 @@ find .dotfiles/files -depth 1 | while read f; do
 done
 
 ln -vnsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
+ln -vnsf $HOME/.dotfiles/zsh_conf/j2fly.zsh-theme $HOME/.oh-my-zsh/themes
 
 touch ~/.dotfiles/successful_install
 
