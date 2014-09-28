@@ -7,10 +7,8 @@
 # ------------------------------------------------------------------------------
 
 function prompt_char {
-    ##### You break flootty
     git branch >/dev/null 2>/dev/null && echo '±' && return
     echo '○'
-    ##### End you break flootty
 }
 
 function pair_name {
@@ -40,10 +38,15 @@ function vi_mode_prompt_info() {
 }
 # END VIM MODE STUFF
 
+if [ -e ~/.rvm/bin/rvm-prompt ]; then
+  RUBY_PROMPT_="%{$fg_bold[blue]%}rvm:(%{$fg[green]%}\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg_bold[blue]%})%{$reset_color%} "
+else
+  if which rbenv &> /dev/null; then
+    RUBY_PROMPT_="%{$fg_bold[blue]%}rbenv:(%{$fg[green]%}\$(rbenv version | sed -e 's/ (set.*$//')%{$fg_bold[blue]%})%{$reset_color%} "
+  fi
+fi
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
-#    PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
-#$(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
     PROMPT='%{$fg[magenta]%}$(pair_name)%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
 $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
 
@@ -55,18 +58,14 @@ $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-    RPROMPT='$(~/.rvm/bin/rvm-prompt)' #you break flootty
-    #RPROMPT=''
-    #RPROMPT='$(cat ~/.rbenv/version)'
+    RPROMPT="$RUBY_PROMPT_"
 
-    # you break flootty
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
     ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
     ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
     ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
     ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
-    # end you break flootty
 else
     PROMPT='[%n@%m:%~$(git_prompt_info)]
 %# '
