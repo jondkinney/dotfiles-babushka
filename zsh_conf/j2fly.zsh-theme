@@ -47,10 +47,10 @@ else
 fi
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
-    PROMPT='%{$fg[magenta]%}$(pair_name)%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
+    PROMPT='%{$fg[magenta]%}$(pair_name)%{$reset_color%} %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
 $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
 
-    ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
+    ZSH_THEME_GIT_PROMPT_PREFIX=" | %{$fg[magenta]%}"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
     ZSH_THEME_GIT_PROMPT_DIRTY=""
     ZSH_THEME_GIT_PROMPT_CLEAN=""
