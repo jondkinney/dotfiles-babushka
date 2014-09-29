@@ -180,11 +180,11 @@ symlink_dev_setup() {
   rm /Users/jon/.vim/snippets/_.snippets
   rm /Users/jon/.tmux.conf
 
-  ln -nsf /rails/github/dev_setup_gist/.vimrc /Users/jon
-  ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim
+  ln -nsf /rails/github/dev_setup_gist/vimrc /Users/jon/.vimrc
+  ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim/
   ln -nsf /rails/github/dev_setup_gist/vundle /Users/jon/.vim
-  ln -nsf /rails/github/dev_setup_gist/_.snippets /Users/jon/.vim/snippets
-  ln -nsf /rails/github/dev_setup_gist/.tmux.conf /Users/jon
+  ln -nsf /rails/github/dev_setup_gist/snippets /Users/jon/.vim/snippets/_.snippets
+  ln -nsf /rails/github/dev_setup_gist/tmux.conf /Users/jon/.tmux.conf
 }
 
 # Edit this file
