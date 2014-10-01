@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get them home first
-cd ~
+cd $HOME
 
 cd &&
 [ -d '.dotfiles' ] || git clone git://github.com/jondkinney/dotfiles.git .dotfiles &&
