@@ -1,6 +1,6 @@
 # Tunnels
 # -------
-alias tunnel_trista='ssh -L 3307:tristakleinphotography.com:3306 trista'
+alias tunnel_name='ssh -L 3307:example.com:3306 hostname' # Example for mysql ports. hostname would need to be in ~/.ssh/config
 
 # DB Stuff
 # --------
@@ -25,22 +25,15 @@ alias fixbrew='sudo chown -R `whoami` /usr/local'
 alias fixpow='rvm env . -- --env > .powenv'
 alias c='clear'
 alias clera='clear'
-alias rm_sym='find . ! -name . -prune -type l|xargs rm'
+alias rm_sym='find . ! -name . -prune -type l | xargs rm'
 
 # Directories
 alias l='ls -lah'
 
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-alias desktop_white="open /Users/macpro/Dropbox/Pictures/Desktop\ Backgrounds/White\ Desktop\ Background.app"
-
 # Git
 # -----------------
+alias gboom='git add -A; git commit -m "Boom"; git push;'
 alias gg='git goggles'
-# alias ggc='git goggles codereview'
-alias ggc='git log -p --reverse master..'
-alias ggcc='git goggles codereview complete'
 alias glg='git log --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias glgl='git log --no-merges --reverse --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias gwc='git whatchanged --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
@@ -49,23 +42,26 @@ alias gtl='git tag -l'
 alias gtlr='git ls-remote --tags'
 alias gbm='git branch --merged'
 alias gbnm='git branch --no-merged'
-alias gmt='git mergetool'
 alias co_remote='/rails/gg_utility/git_goggles_ruby_checkout.rb'
 alias prune_merged='/rails/gg_utility/git_goggles_prune_merged.rb'
 alias ptl='bundle exec rake pt:list'
-alias pt='pivotal_tools --project-index=1'
 alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
 alias gmnff='git merge --no-edit --no-ff $*'
 compdef gmnff=git
 alias mmts='git checkout staging; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmtp='git checkout production; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmte='mmts;mmtp'
-alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy'
+alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d "\n" | pbcopy' # copies the current branch to your clipboard (on os x)
 alias gp='git push;git push --tags'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias gd='git diff'
 alias zff='zenflow feature finish'
+alias dev='git checkout development'
+alias sta='git checkout staging'
+alias prd='git checkout production'
+alias mas='git checkout master'
+
 
 # Nocorrect Aliases
 # -----------------
@@ -76,15 +72,13 @@ unsetopt correct_all
 alias tl='tmux ls'
 alias ta='tmux attach -t $*'
 alias tk='tmux kill-session -t $*'
+alias tks='tmux kill-server'
 alias to='tmuxinator open $*'
 alias ts='tmuxinator start $@'
 alias ml='tmuxinator list'
-alias push_cukes='bundle exec rake gitnesse:push'
 
 # Project Shortcuts
 # -----------------
-alias b_app='cd /rails/bolstr/bolstr; setTerminalText 0 Bolstr App; tmuxinator start b_app'
-alias b_cms='cd /rails/bolstr/public; setTerminalText 0 Bolstr CMS; tmuxinator start b_cms'
 alias fph='cd /rails/fans-park-here; setTerminalText 0 FPH; tmuxinator start fph'
 alias mvc='cd /rails/clients/moulding_visions; setTerminalText 0 MVC; tmuxinator start mvc'
 alias trista='cd /rails/clients/trista; setTerminalText 0 TRISTA; tmuxinator start trista'
@@ -93,14 +87,7 @@ alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinat
 alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
 alias hack='tmuxinator start hack'
 
-alias bolstr='cd /rails/bolstr/bolstr'
-alias dot='cd ~/.dotfiles'
-alias pdot='cd ~/.private-dotfiles'
-
-alias dev='git checkout development'
-alias sta='git checkout staging'
-alias prd='git checkout production'
-alias mas='git checkout master'
+alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
 # VIM
 # ---
@@ -109,7 +96,6 @@ alias vbi='vim +BundleInstall +qall'
 alias vbe='vim ~/.vim/vundle'
 alias vbc='vim +BundleClean +qall'
 
-alias ev='cd /rails/github/dev_setup_gist; vim vimrc_main'
 alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
@@ -155,16 +141,18 @@ symlink_dev_setup() {
   rm /Users/jon/.vim/vundle
   rm /Users/jon/.vim/snippets/_.snippets
   rm /Users/jon/.tmux.conf
+  rm /Users/jon/.tmux_mac.conf
 
   ln -nsf /rails/github/dev_setup_gist/vimrc /Users/jon/.vimrc
   ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim/
   ln -nsf /rails/github/dev_setup_gist/vundle /Users/jon/.vim
   ln -nsf /rails/github/dev_setup_gist/snippets /Users/jon/.vim/snippets/_.snippets
   ln -nsf /rails/github/dev_setup_gist/tmux.conf /Users/jon/.tmux.conf
+  ln -nsf /rails/github/dev_setup_gist/tmux_mac.conf /Users/jon/.tmux_mac.conf
 }
 
 # Edit this file
-alias ea='cd ~/.oh-my-zsh/custom/; vim j2fly_shortcuts.zsh'
+alias ea='vim ~/.oh-my-zsh/custom/j2fly_shortcuts.zsh'
 
 #Source this file
-alias aup='source /Users/jon/.oh-my-zsh/custom/j2fly_shortcuts.zsh'
+alias ea_source='source $HOME/.oh-my-zsh/custom/j2fly_shortcuts.zsh'
