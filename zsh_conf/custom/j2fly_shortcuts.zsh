@@ -86,6 +86,7 @@ alias allovue='cd /rails/allovue; setTerminalText 0 Allovue; tmuxinator start al
 alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinator start mailtank'
 alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
 alias hack='tmuxinator start hack'
+alias blog='tmuxinator start blog'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
