@@ -85,6 +85,7 @@ alias trista='cd /rails/clients/trista; setTerminalText 0 TRISTA; tmuxinator sta
 alias allovue='cd /rails/allovue; setTerminalText 0 Allovue; tmuxinator start allovue'
 alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinator start mailtank'
 alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
+alias garnethill='cd /rails/garnethill-clarity; setTerminalText 0 GarnetHill; tmuxinator start garnethill'
 alias hack='tmuxinator start hack'
 alias blog='setTerminalText 0 Blog; tmuxinator start blog'
 
@@ -92,7 +93,7 @@ alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
 # VIM
 # ---
-#alias vim='mvim -v'
+#alias vim='nvim'
 alias vbi='vim +BundleInstall +qall'
 alias vbe='vim ~/.vim/vundle'
 alias vbc='vim +BundleClean +qall'
@@ -105,9 +106,9 @@ alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 # bundler so this alias helps make that easier
 alias b='bundle exec $*'
 alias p='bundle exec powder $*'
-alias rdm='bundle exec rake db:migrate'
-alias rc='bundle exec rails console'
-alias rdbc='rails dbconsole'
+alias rdm='bin/rake db:migrate'
+alias rc='bin/rails console'
+alias rdbc='bin/rails dbconsole'
 
 # CAPISTRANO
 # ----------

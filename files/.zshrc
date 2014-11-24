@@ -22,7 +22,7 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
-plugins=(git git-flow rails ruby cap brew gem github osx globalalias)
+plugins=(git git-flow-avh osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,3 +40,9 @@ zle -N zle-keymap-select
 
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
+
+#case $- in *i*)
+#  if [ -z "$TMUX" ]; then
+#    exec tmux;
+#  fi
+#esac

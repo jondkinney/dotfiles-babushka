@@ -13,3 +13,4 @@ tmp/restart.txt
 .zsh-update
 .zsh_history
 successful_install
+.floo*
