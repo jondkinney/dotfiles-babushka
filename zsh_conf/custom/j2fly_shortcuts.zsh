@@ -86,7 +86,7 @@ alias allovue='cd /rails/allovue; setTerminalText 0 Allovue; tmuxinator start al
 alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinator start mailtank'
 alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
 alias garnethill='cd /rails/garnethill-clarity; setTerminalText 0 GarnetHill; tmuxinator start garnethill'
-alias hack='tmuxinator start hack'
+alias hack='tmuxinator start hack; setTerminalText 0 Hack'
 alias blog='setTerminalText 0 Blog; tmuxinator start blog'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
@@ -119,7 +119,7 @@ alias dpm='git checkout production; bundle exec cap production deploy:migrations
 
 # PAIR
 #-----
-alias unpair='gh-auth remove $*'
+unpair () { gh-auth remove --users=$1 }
 
 alias webserver='python -m SimpleHTTPServer'
 
