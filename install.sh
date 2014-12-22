@@ -11,6 +11,7 @@ done
 
 ln -vnsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
 ln -vnsf $HOME/.dotfiles/zsh_conf/j2fly.zsh-theme $HOME/.oh-my-zsh/themes
+ln -vnsf $HOME/.dotfiles/scripts/pair /usr/local/bin
 
 echo 'Successfully Installed'
 echo '       _____   ______          ____        __  _____ __'
