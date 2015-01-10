@@ -98,6 +98,7 @@ alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 alias vbi='vim +BundleInstall +qall'
 alias vbe='vim ~/.vim/vundle'
 alias vbc='vim +BundleClean +qall'
+alias vim_huge='vim -u NONE -U NONE -N $*'
 
 alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
