@@ -89,6 +89,7 @@ alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start 
 alias garnethill='cd /rails/garnethill-clarity; setTerminalText 0 GarnetHill; tmuxinator start garnethill'
 alias hack='tmuxinator start hack; setTerminalText 0 Hack'
 alias blog='setTerminalText 0 Blog; tmuxinator start blog'
+alias bolstr='cd /rails/bolstr/bolstr; setTerminalText 0 Bolstr; tmuxinator start bolstr'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
