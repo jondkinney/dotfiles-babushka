@@ -156,6 +156,15 @@ symlink_dev_setup() {
   ln -nsf /rails/github/dev_setup_gist/tmux_mac.conf /Users/jon/.tmux_mac.conf
 }
 
+overwrite_dev_setup_with_current() {
+  mv /Users/jon/.vimrc /rails/github/dev_setup_gist/vimrc
+  mv /Users/jon/.vim/vimrc_main /rails/github/dev_setup_gist/
+  mv /Users/jon/.vim/vundle /rails/github/dev_setup_gist/
+  mv /Users/jon/.vim/snippets/_.snippets /rails/github/dev_setup_gist/snippets
+  mv /Users/jon/.tmux.conf /rails/github/dev_setup_gist/tmux.conf
+  mv /Users/jon/.tmux_mac.conf /rails/github/dev_setup_gist/tmux_mac.conf
+}
+
 # Edit this file
 alias ea='vim ~/.oh-my-zsh/custom/j2fly_shortcuts.zsh'
 
