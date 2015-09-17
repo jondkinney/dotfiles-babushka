@@ -96,7 +96,7 @@ alias bolstr_floobits='cd ~/floobits/BolstrInc/app-bolstr; setTerminalText 0 Bol
 alias petpb='cd /rails/faster_agile/PetPB-backend; setTerminalText 0 PetPB; tmuxinator start petpb'
 alias tpc='cd /rails/faster_agile/tpc/tpc-payment-api; setTerminalText 0 TPC; tmuxinator start tpc'
 alias adored='cd /rails/faster_agile/adored/adored-admin; setTerminalText 0 Adored; tmuxinator start adored'
-alias fun='cd /rails/github/test; setTerminalText 0 Shell; tmuxinator start test'
+alias handshake='cd /rails/headway/handshake; setTerminalText 0 Handshake; tmuxinator start handshake'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 

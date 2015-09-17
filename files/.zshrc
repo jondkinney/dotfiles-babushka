@@ -22,7 +22,7 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
-plugins=(git git-flow-avh osx)
+plugins=(git sudo tmuxinator web-search wd brew cap cloudapp gem git_remote_branch npm osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,7 +31,7 @@ source $ZSH/oh-my-zsh.sh
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
-bindkey -v
+# bindkey -v
 
 function zle-keymap-select {
   zle reset-prompt
