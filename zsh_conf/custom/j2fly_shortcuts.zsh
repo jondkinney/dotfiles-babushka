@@ -1,6 +1,8 @@
 # Tunnels
 # -------
 alias tunnel_name='ssh -L 3307:example.com:3306 hostname' # Example for mysql ports. hostname would need to be in ~/.ssh/config
+alias tunnel_pete='ssh -L 42000:localhost:4200 pete' # Example for mysql ports. hostname would need to be in ~/.ssh/config
+alias tunnel_pete_rails='ssh -L 3000:localhost:3000 pete' # Example for mysql ports. hostname would need to be in ~/.ssh/config
 
 # DB Stuff
 # --------
@@ -48,7 +50,7 @@ alias gf='git fetch'
 alias ptl='bundle exec rake pt:list'
 alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
 alias gmnff='git merge --no-edit --no-ff $*'
-compdef gmnff=git
+# compdef gmnff=git
 alias mmts='git checkout staging; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmtp='git checkout production; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmte='mmts;mmtp'
@@ -90,6 +92,11 @@ alias garnethill='cd /rails/garnethill-clarity; setTerminalText 0 GarnetHill; tm
 alias hack='tmuxinator start hack; setTerminalText 0 Hack'
 alias blog='setTerminalText 0 Blog; tmuxinator start blog'
 alias bolstr='cd /rails/bolstr/bolstr; setTerminalText 0 Bolstr; tmuxinator start bolstr'
+alias bolstr_floobits='cd ~/floobits/BolstrInc/app-bolstr; setTerminalText 0 Bolstr Floobits; tmuxinator start bolstr_floobits'
+alias petpb='cd /rails/faster_agile/PetPB-backend; setTerminalText 0 PetPB; tmuxinator start petpb'
+alias tpc='cd /rails/faster_agile/tpc/tpc-payment-api; setTerminalText 0 TPC; tmuxinator start tpc'
+alias adored='cd /rails/faster_agile/adored/adored-admin; setTerminalText 0 Adored; tmuxinator start adored'
+alias fun='cd /rails/github/test; setTerminalText 0 Shell; tmuxinator start test'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
@@ -112,6 +119,11 @@ alias p='bundle exec powder $*'
 alias rdm='bin/rake db:migrate'
 alias rc='bin/rails console'
 alias rdbc='bin/rails dbconsole'
+alias kr='kill -9 `cat tmp/pids/server.pid; echo;`'
+
+# NODE
+# ----
+alias nombomb='trash node_modules; bower cache clean && trash bower_components'
 
 # CAPISTRANO
 # ----------
