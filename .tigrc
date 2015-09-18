@@ -1,0 +1,4 @@
+bind generic 9 !@bash -c "echo -n %(commit) | pbcopy"
+bind generic + !git commit --amend
+bind generic T !git notes edit %(commit)
+bind generic I !git add -i %(file)
