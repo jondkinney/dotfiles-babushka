@@ -14,3 +14,4 @@ tmp/restart.txt
 .zsh_history
 successful_install
 .floo*
+.vim-bookmarks
