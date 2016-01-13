@@ -30,7 +30,6 @@ source $ZSH/oh-my-zsh.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-
 # bindkey -v
 
 function zle-keymap-select {
@@ -46,3 +45,6 @@ bindkey -M vicmd '^R' history-incremental-search-backward
 #    exec tmux;
 #  fi
 #esac
+
+# auto switch between bin/rspec and rspec by loading bin dir in front of RVM
+eval "$(direnv hook $0)"
