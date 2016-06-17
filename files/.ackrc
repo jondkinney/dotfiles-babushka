@@ -9,6 +9,7 @@
 --ignore-dir=public/shots
 --ignore-dir=production_data
 --ignore-dir=accredited_investor_questionnaires
+--ignore-dir=lib/cli/meca/correlations/
 --ignore-dir=docusign_docs
 --ignore-dir=cookbooks
 --ignore-dir=vim_sessions

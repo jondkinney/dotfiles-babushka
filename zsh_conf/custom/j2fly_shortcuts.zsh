@@ -36,8 +36,6 @@ alias l='ls -lah'
 # -----------------
 alias gboom='git add -A; git commit -m "Boom"; git push;'
 alias gg='git goggles'
-alias glg='git log --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
-alias glgl='git log --no-merges --reverse --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias gwc='git whatchanged --no-merges --pretty=format:"%Cgreen%h%Creset%x09%an%x09%Cblue%ar%Creset%x09%s"'
 alias gt='git tag'
 alias gtl='git tag -l'
@@ -50,7 +48,6 @@ alias gf='git fetch'
 alias ptl='bundle exec rake pt:list'
 alias ptc='cat /rails/bolstr/bolstr/doc/current_pt_story.txt'
 alias gmnff='git merge --no-edit --no-ff $*'
-# compdef gmnff=git
 alias mmts='git checkout staging; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmtp='git checkout production; git merge --no-edit --no-ff master; git push; git push --tags'
 alias mmte='mmts;mmtp'
@@ -58,7 +55,6 @@ alias gbc='git rev-parse --abbrev-ref HEAD 2>/dev/null | cut -d"/" -f 2 | tr -d 
 alias gp='git push;git push --tags'
 alias gs='git stash'
 alias gsp='git stash pop'
-alias gd='git diff'
 alias zff='zenflow feature finish'
 alias dev='git checkout development'
 alias sta='git checkout staging'
@@ -82,22 +78,11 @@ alias ml='tmuxinator list'
 
 # Project Shortcuts
 # -----------------
-alias fph='cd /rails/fans-park-here; setTerminalText 0 FPH; tmuxinator start fph'
-alias mvc='cd /rails/clients/moulding_visions; setTerminalText 0 MVC; tmuxinator start mvc'
-alias trista='cd /rails/clients/trista; setTerminalText 0 TRISTA; tmuxinator start trista'
-alias allovue='cd /rails/allovue; setTerminalText 0 Allovue; tmuxinator start allovue'
-alias mailtank='cd /rails/mailtank-enduser; setTerminalText 0 Mailtank; tmuxinator start mailtank'
-alias cohealo='cd /rails/scheduler; setTerminalText 0 Cohealo; tmuxinator start cohealo'
-alias garnethill='cd /rails/garnethill-clarity; setTerminalText 0 GarnetHill; tmuxinator start garnethill'
 alias hack='tmuxinator start hack; setTerminalText 0 Hack'
 alias blog='setTerminalText 0 Blog; tmuxinator start blog'
-alias bolstr='cd /rails/bolstr/bolstr; setTerminalText 0 Bolstr; tmuxinator start bolstr'
-alias bolstr_floobits='cd ~/floobits/BolstrInc/app-bolstr; setTerminalText 0 Bolstr Floobits; tmuxinator start bolstr_floobits'
-alias petpb='cd /rails/faster_agile/PetPB-backend; setTerminalText 0 PetPB; tmuxinator start petpb'
-alias tpc='cd /rails/faster_agile/tpc/tpc-payment-api; setTerminalText 0 TPC; tmuxinator start tpc'
-alias adored='cd /rails/faster_agile/adored/adored-admin; setTerminalText 0 Adored; tmuxinator start adored'
-alias handshake='cd /rails/headway/handshake; setTerminalText 0 Handshake; tmuxinator start handshake'
 alias attacktracker='cd /rails/headway/attacktracker; setTerminalText 0 AttackTracker; tmuxinator start attacktracker'
+alias conover='cd /rails/headway/conover; setTerminalText 0 Conover; tmuxinator start conover'
+alias irememba='cd /rails/headway/irememba; setTerminalText 0 Irememba; tmuxinator start irememba'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
@@ -108,8 +93,6 @@ alias vbi='vim +BundleInstall +qall'
 alias vbe='vim ~/.vim/vundle'
 alias vbc='vim +BundleClean +qall'
 alias vim_huge='vim -u NONE -U NONE -N $*'
-
-alias jonvim='vim ~/Dropbox/Documents/Web\ Development/Vim/jons_vim_guide.txt'
 
 # RAILS
 # -----

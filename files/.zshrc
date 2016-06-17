@@ -22,15 +22,13 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
-plugins=(git sudo tmuxinator web-search wd brew cap cloudapp gem git_remote_branch npm osx)
+plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
 
 source $ZSH/oh-my-zsh.sh
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# bindkey -v
 
 function zle-keymap-select {
   zle reset-prompt
@@ -40,11 +38,7 @@ zle -N zle-keymap-select
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
 
-#case $- in *i*)
-#  if [ -z "$TMUX" ]; then
-#    exec tmux;
-#  fi
-#esac
-
 # auto switch between bin/rspec and rspec by loading bin dir in front of RVM
 eval "$(direnv hook $0)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
