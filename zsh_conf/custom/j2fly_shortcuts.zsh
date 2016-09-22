@@ -83,6 +83,10 @@ alias blog='setTerminalText 0 Blog; tmuxinator start blog'
 alias attacktracker='cd /rails/headway/attacktracker; setTerminalText 0 AttackTracker; tmuxinator start attacktracker'
 alias conover='cd /rails/headway/conover; setTerminalText 0 Conover; tmuxinator start conover'
 alias irememba='cd /rails/headway/irememba; setTerminalText 0 Irememba; tmuxinator start irememba'
+alias radius='cd /rails/testdouble/roostify/radius-integration; setTerminalText 0 Radius; tmuxinator start radius'
+alias genworth='cd /rails/testdouble/roostify/genworth-integration; setTerminalText 0 Genworth; tmuxinator start genworth'
+alias radius='cd /rails/testdouble/roostify/radius-integration; setTerminalText 0 Radius; tmuxinator start radius'
+alias webinar='cd ~/Sites/Rails/headway/webinars/selfstarter; setTerminalText 0 Webinar; tmuxinator start webinar'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 

@@ -7,8 +7,6 @@ export RUBY_GC_HEAP_FREE_SLOTS=500000
 export RUBY_GC_HEAP_INIT_SLOTS=40000
 # end Ruby optimizations
 
-export PIVOTAL_TOKEN='5b12651ad30e4d75272d09176c42b172'
-
 #Git options
 GIT_MERGE_AUTOEDIT=no
 export GIT_MERGE_AUTOEDIT
@@ -38,7 +36,14 @@ zle -N zle-keymap-select
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
 
-# auto switch between bin/rspec and rspec by loading bin dir in front of RVM
-eval "$(direnv hook $0)"
+case `uname` in
+  Darwin)
+    # auto switch between bin/rspec and rspec by loading bin dir in front of RVM
+    eval "$(direnv hook $0)"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+esac
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh

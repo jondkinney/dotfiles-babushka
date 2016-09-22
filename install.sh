@@ -5,7 +5,7 @@ cd $HOME
 
 cd &&
 [ -d '.dotfiles' ] || git clone git://github.com/jondkinney/dotfiles.git .dotfiles &&
-find .dotfiles/files -depth 1 | while read f; do
+find .dotfiles/files -depth | while read f; do
   ln -vnsf "$f" $HOME
 done
 
