@@ -2,7 +2,7 @@
 # -------
 alias tunnel_name='ssh -L 3307:example.com:3306 hostname' # Example for mysql ports. hostname would need to be in ~/.ssh/config
 alias tunnel_pete='ssh -L 42000:localhost:4200 pete' # Example for mysql ports. hostname would need to be in ~/.ssh/config
-alias tunnel_pete_rails='ssh -L 3000:localhost:3000 pete' # Example for mysql ports. hostname would need to be in ~/.ssh/config
+alias tunnel_roostify_rails='ssh -L 2384:localhost:2384 roostify' # Example for mysql ports. hostname would need to be in ~/.ssh/config
 
 # DB Stuff
 # --------
@@ -28,6 +28,7 @@ alias fixpow='rvm env . -- --env > .powenv'
 alias c='clear'
 alias clera='clear'
 alias rm_sym='find . ! -name . -prune -type l | xargs rm'
+alias fixcam='sudo killall VDCAssistant'
 
 # Directories
 alias l='ls -lah'
