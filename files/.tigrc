@@ -3,4 +3,13 @@ bind generic + !git commit --amend
 bind generic a !git rebase --interactive %(commit)
 bind generic T !git notes edit %(commit)
 bind generic I !git add -i %(file)
+bind status N !@git add -N %(file)
+bind status S !?git stash save --keep-index %(prompt)
+bind status D !@?rm %(file)
+bind stash D !?git stash drop %(stash)
+bind stash A !?git stash apply %(stash)
+bind main T !@git tag %(prompt) %(commit)
+bind generic B @sh -c "xdg-open 'https://'$(git remote -v | grep -Eo 'github.com[:/][^.]+' | head -1 | tr : /)'/commit/%(commit)'"
+bind status P !git add --patch %(file)
+bind status <Ctrl-r> !sh -c "echo %(file) >> .gitignore && vim .gitignore"
 set vertical-split = no
