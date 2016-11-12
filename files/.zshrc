@@ -20,13 +20,15 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
+export TERM=xterm-256color
+
 plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
 
 source $ZSH/oh-my-zsh.sh
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:~/bin # Add RVM to PATH for scripting
 
 function zle-keymap-select {
   zle reset-prompt
