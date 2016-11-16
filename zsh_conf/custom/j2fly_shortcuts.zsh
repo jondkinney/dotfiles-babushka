@@ -77,6 +77,17 @@ alias to='tmuxinator open $*'
 alias ts='tmuxinator start $@'
 alias ml='tmuxinator list'
 
+# Wemux
+# -----
+alias wl='wemux list'
+alias wj='wemux join $*'
+alias wr='wemux rogue $*'
+alias wp='wemux pair $*'
+alias wsj='f() { wemux join $1; wemux start }; f'
+alias wk='wemux stop $*'
+alias wks='wemux stop'
+
+
 # Project Shortcuts
 # -----------------
 alias hack='tmuxinator start hack; setTerminalText 0 Hack'
