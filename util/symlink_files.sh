@@ -11,7 +11,7 @@ function symlink_files(){
   for file_path in $files
   do
     file_name=$(basename $file_path)
-    ln -vnsF $file_path "$destination_dir/$file_name"
+    ln -vnsFf $file_path "$destination_dir/$file_name"
   done
 
   shopt -u dotglob # Disable globbing over hidden files
