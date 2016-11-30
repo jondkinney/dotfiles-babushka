@@ -1,13 +1,13 @@
 #!/bin/bash
 
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source "$DIR/util/symlink_files.sh"
+
 # get them home first
 cd $HOME
 
-cd &&
-[ -d '.dotfiles' ] || git clone git://github.com/jondkinney/dotfiles.git .dotfiles &&
-find .dotfiles/files -depth | while read f; do
-  ln -vnsf "$f" $HOME
-done
+[ -d '.dotfiles' ] || git clone git://github.com/jondkinney/dotfiles.git .dotfiles
+symlink_files "$(pwd)/.dotfiles/files" $HOME
 
 ln -vnsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
 ln -vnsf $HOME/.dotfiles/zsh_conf/j2fly.zsh-theme $HOME/.oh-my-zsh/themes
