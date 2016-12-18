@@ -29,6 +29,7 @@ alias c='clear'
 alias clera='clear'
 alias rm_sym='find . ! -name . -prune -type l | xargs rm'
 alias fixcam='sudo killall VDCAssistant'
+alias fixterm='stty sane'
 
 # Directories
 alias l='ls -lah'
