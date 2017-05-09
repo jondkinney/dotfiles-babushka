@@ -5,18 +5,8 @@ if defined?(PryDebugger) || defined?(PryByebug)
   Pry.commands.alias_command 'f', 'finish'
 end
 
-Pry::Commands.command /^$/, 'repeat last command' do
+Pry::Commands.command(/^$/, 'repeat last command') do
   _pry_.run_command Pry.history.to_a.last
-end
-
-
-begin
-  require 'pry-clipboard'
-  # aliases
-  Pry.config.commands.alias_command 'ch', 'copy-history'
-  Pry.config.commands.alias_command 'cr', 'copy-result'
-rescue LoadError
-  warn "can't load pry-clipboard"
 end
 
 class Object
