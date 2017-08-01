@@ -20,7 +20,7 @@ export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
 
@@ -29,6 +29,7 @@ source $ZSH/oh-my-zsh.sh
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 PATH=$PATH:$HOME/.rvm/bin:~/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/Library/Python/2.7/bin
 
 function zle-keymap-select {
   zle reset-prompt
@@ -49,3 +50,7 @@ case `uname` in
 esac
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# BEGIN ANSIBLE MANAGED BLOCK: team-unicorns
+source ~/bin/team-unicorns.sh
+# END ANSIBLE MANAGED BLOCK: team-unicorns

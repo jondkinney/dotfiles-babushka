@@ -15,7 +15,10 @@ deleted = []
 local_branches.each do |local_branch|
   next if branches_to_ignore.include? local_branch
 
-  `grb delete #{local_branch}` unless explain
+  unless explain
+    `git push origin --delete #{local_branch}`
+    `git branch -d #{local_branch}`
+  end
 
   deleted << local_branch
 end

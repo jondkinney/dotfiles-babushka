@@ -22,7 +22,7 @@ alias redis='redis-server /usr/local/etc/redis.conf'
 # System Level
 # ------------
 alias uldb='sudo /usr/libexec/locate.updatedb' #update the location database
-alias flush_dns='dscacheutil -flushcache'
+alias flush_dns='sudo killall -HUP mDNSResponder'
 alias fixbrew='sudo chown -R `whoami` /usr/local'
 alias fixpow='rvm env . -- --env > .powenv'
 alias c='clear'
@@ -96,10 +96,12 @@ alias blog='setTerminalText 0 Blog; tmuxinator start blog'
 alias attacktracker='cd /rails/headway/attacktracker; setTerminalText 0 AttackTracker; tmuxinator start attacktracker'
 alias conover='cd /rails/headway/conover; setTerminalText 0 Conover; tmuxinator start conover'
 alias irememba='cd /rails/headway/irememba; setTerminalText 0 Irememba; tmuxinator start irememba'
-alias radius='cd /rails/testdouble/roostify/radius-integration; setTerminalText 0 Radius; tmuxinator start radius'
-alias genworth='cd /rails/testdouble/roostify/genworth-integration; setTerminalText 0 Genworth; tmuxinator start genworth'
-alias radius='cd /rails/testdouble/roostify/radius-integration; setTerminalText 0 Radius; tmuxinator start radius'
 alias webinar='cd ~/Sites/Rails/headway/webinars/selfstarter; setTerminalText 0 Webinar; tmuxinator start webinar'
+alias athletefit='cd /rails/headway/athletefit_backend; setTerminalText 0 AthleteFit; tmuxinator start athletefit'
+alias hypremium='cd /rails/headway/hypremium_backend; setTerminalText 0 Hypremium; tmuxinator start hypremium'
+alias voyage='cd /rails/headway/suspenders; setTerminalText 0 Voyage; tmuxinator start voyage'
+alias dosis='cd /rails/headway/dosis; setTerminalText 0 Dosis; tmuxinator start dosis'
+alias 26letters='cd /rails/headway/inclusion; setTerminalText 0 26 Letters; tmuxinator start 26letters'
 
 alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
 
