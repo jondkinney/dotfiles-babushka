@@ -138,8 +138,14 @@ set_tab_and_title_name () { setTerminalText 0 $@; }
 
 # Set Window Title initially, then setting tab titles won't override it
 set_title_name Let\'s Make Headway
-set_tab_name JKMBP
 
+# Set new tab titles to the machine's name
+case `uname` in
+  Darwin)
+    # auto switch between bin/rspec and rspec by loading bin dir in front of RVM
+    set_tab_name `hostname | cut -d'.' -f 1`
+  ;;
+esac
 
 # after installing vim, this simplifies getting my setup symlinked back to the
 # dev_setup_gist
