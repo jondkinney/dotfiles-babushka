@@ -14,13 +14,12 @@ export GIT_MERGE_AUTOEDIT
 
 export ZSH_THEME="j2fly"
 
+# Allows setTerminalText to work
 export DISABLE_AUTO_TITLE='true'
 
 export EDITOR=vim
 
 export ARCHFLAGS="-arch x86_64"
-
-#export TERM=xterm-256color
 
 plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
 
@@ -51,6 +50,6 @@ esac
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-# BEGIN ANSIBLE MANAGED BLOCK: team-unicorns
-source ~/bin/team-unicorns.sh
-# END ANSIBLE MANAGED BLOCK: team-unicorns
+chmod +x ~/.vocab
+~/.vocab
+alias clear="clear;~/.vocab"

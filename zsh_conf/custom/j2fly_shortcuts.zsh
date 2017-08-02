@@ -1,9 +1,3 @@
-# Tunnels
-# -------
-alias tunnel_name='ssh -L 3307:example.com:3306 hostname' # Example for mysql ports. hostname would need to be in ~/.ssh/config
-alias tunnel_pete='ssh -L 42000:localhost:4200 pete' # Example for mysql ports. hostname would need to be in ~/.ssh/config
-alias tunnel_roostify_rails='ssh -L 2384:localhost:2384 roostify' # Example for mysql ports. hostname would need to be in ~/.ssh/config
-
 # DB Stuff
 # --------
 # PG
@@ -24,15 +18,11 @@ alias redis='redis-server /usr/local/etc/redis.conf'
 alias uldb='sudo /usr/libexec/locate.updatedb' #update the location database
 alias flush_dns='sudo killall -HUP mDNSResponder'
 alias fixbrew='sudo chown -R `whoami` /usr/local'
-alias fixpow='rvm env . -- --env > .powenv'
 alias c='clear'
 alias clera='clear'
 alias rm_sym='find . ! -name . -prune -type l | xargs rm'
 alias fixcam='sudo killall VDCAssistant'
 alias fixterm='stty sane'
-
-# Directories
-alias l='ls -lah'
 
 # Git
 # -----------------
@@ -91,19 +81,20 @@ alias wks='wemux stop'
 
 # Project Shortcuts
 # -----------------
-alias hack='tmuxinator start hack; setTerminalText 0 Hack'
-alias blog='setTerminalText 0 Blog; tmuxinator start blog'
-alias attacktracker='cd /rails/headway/attacktracker; setTerminalText 0 AttackTracker; tmuxinator start attacktracker'
-alias conover='cd /rails/headway/conover; setTerminalText 0 Conover; tmuxinator start conover'
-alias irememba='cd /rails/headway/irememba; setTerminalText 0 Irememba; tmuxinator start irememba'
-alias webinar='cd ~/Sites/Rails/headway/webinars/selfstarter; setTerminalText 0 Webinar; tmuxinator start webinar'
-alias athletefit='cd /rails/headway/athletefit_backend; setTerminalText 0 AthleteFit; tmuxinator start athletefit'
-alias hypremium='cd /rails/headway/hypremium_backend; setTerminalText 0 Hypremium; tmuxinator start hypremium'
-alias voyage='cd /rails/headway/suspenders; setTerminalText 0 Voyage; tmuxinator start voyage'
-alias dosis='cd /rails/headway/dosis; setTerminalText 0 Dosis; tmuxinator start dosis'
-alias 26letters='cd /rails/headway/inclusion; setTerminalText 0 26 Letters; tmuxinator start 26letters'
+alias hack='tmuxinator start hack; set_tab_name Hack'
+alias blog='set_tab_name Blog; tmuxinator start blog'
+alias attacktracker='cd /rails/headway/attacktracker; set_tab_name AttackTracker; tmuxinator start attacktracker'
+alias conover='cd /rails/headway/conover; set_tab_name Conover; tmuxinator start conover'
+alias irememba='cd /rails/headway/irememba; set_tab_name Irememba; tmuxinator start irememba'
+alias webinar='cd ~/Sites/Rails/headway/webinars/selfstarter; set_tab_name Webinar; tmuxinator start webinar'
+alias athletefit='cd /rails/headway/athletefit_backend; set_tab_name AthleteFit; tmuxinator start athletefit'
+alias hypremium='cd /rails/headway/hypremium_backend; set_tab_name Hypremium; tmuxinator start hypremium'
+alias voyage='cd /rails/headway/suspenders; set_tab_name Voyage; tmuxinator start voyage'
+alias dosis='cd /rails/headway/dosis; set_tab_name Dosis; tmuxinator start dosis'
+alias 26letters='cd /rails/headway/inclusion; set_tab_name 26 Letters; tmuxinator start 26letters'
+alias ttl='cd /rails/headway/ttl; set_tab_name TTL; tmuxinator start ttl'
 
-alias hack_dev_setup='setTerminalText 0 Dev Setup; tmuxinator start dev_setup'
+alias hack_dev_setup='set_tab_name Dev Setup; tmuxinator start dev_setup'
 
 # VIM
 # ---
@@ -118,7 +109,6 @@ alias vim_huge='vim -u NONE -U NONE -N $*'
 # you need to use bundle exec before each command you run in a app controled by
 # bundler so this alias helps make that easier
 alias b='bundle exec $*'
-alias p='bundle exec powder $*'
 alias rdm='bin/rake db:migrate'
 alias rc='bin/rails console'
 alias rdbc='bin/rails dbconsole'
@@ -127,13 +117,6 @@ alias kr='kill -9 `cat tmp/pids/server.pid; echo;`'
 # NODE
 # ----
 alias nombomb='trash node_modules; bower cache clean && trash bower_components'
-
-# CAPISTRANO
-# ----------
-alias ds='git checkout staging; bundle exec cap deploy'
-alias dsm='git checkout staging; bundle exec cap deploy:migrations'
-alias dp='git checkout production; bundle exec cap production deploy'
-alias dpm='git checkout production; bundle exec cap production deploy:migrations'
 
 # PAIR
 #-----
@@ -148,9 +131,14 @@ setTerminalText () {
     local mode=$1 ; shift
     echo -ne "\033]$mode;$@\007"
 }
-nt         () { setTerminalText 0 $@; }
-stt_tab    () { setTerminalText 1 $@; }
-stt_title  () { setTerminalText 2 $@; }
+
+set_tab_name () { setTerminalText 1 $@; }
+set_title_name () { setTerminalText 2 $@; }
+set_tab_and_title_name () { setTerminalText 0 $@; }
+
+# Set Window Title initially, then setting tab titles won't override it
+set_title_name Let\'s Make Headway
+set_tab_name JKMBP
 
 
 # after installing vim, this simplifies getting my setup symlinked back to the
