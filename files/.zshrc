@@ -52,4 +52,3 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 
 chmod +x ~/.vocab
 ~/.vocab
-alias clear="clear;~/.vocab"
