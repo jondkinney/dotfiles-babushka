@@ -50,5 +50,7 @@ esac
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-chmod +x ~/.vocab
-~/.vocab
+#chmod +x ~/.vocab
+#~/.vocab
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
