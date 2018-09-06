@@ -17,7 +17,7 @@ export ZSH_THEME="j2fly"
 # Allows setTerminalText to work
 export DISABLE_AUTO_TITLE='true'
 
-export EDITOR=vim
+export EDITOR=nvim
 
 export ARCHFLAGS="-arch x86_64"
 
@@ -50,7 +50,7 @@ esac
 
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-#chmod +x ~/.vocab
-#~/.vocab
-
+# FZF
+# TODO: (2018-02-28) jon => see about using ag for fzf to auto-ignore the .gitignore files
+export FZF_DEFAULT_COMMAND='find . -name .git -prune -o -name node_modules -prune -o -name coverage -prune -o -name tmp -prune -o -type f -print'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

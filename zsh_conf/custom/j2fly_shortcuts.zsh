@@ -52,6 +52,7 @@ alias dev='git checkout development'
 alias sta='git checkout staging'
 alias prd='git checkout production'
 alias mas='git checkout master'
+alias gauthor='f() { GIT_COMMITTER_DATE=$1 git commit --amend --date=$1 }; f' # Wed Mar 14 14:08 2018 -0600
 
 
 # Nocorrect Aliases
@@ -100,7 +101,7 @@ alias hack_dev_setup='set_tab_name Dev Setup; tmuxinator start dev_setup'
 # ---
 #alias vim='nvim'
 alias vbi='vim +BundleInstall +qall'
-alias vbe='vim ~/.vim/vundle'
+alias vpe='vim ~/.vim/plugins.vim'
 alias vbc='vim +BundleClean +qall'
 alias vim_huge='vim -u NONE -U NONE -N $*'
 
@@ -152,14 +153,16 @@ esac
 symlink_dev_setup() {
   rm /Users/jon/.vimrc
   rm /Users/jon/.vim/vimrc_main
-  rm /Users/jon/.vim/vundle
+  rm /Users/jon/.vimrc_custom
+  rm /Users/jon/.vim/plugins.vim
   rm /Users/jon/.vim/snippets/_.snippets
   rm /Users/jon/.tmux.conf
   rm /Users/jon/.tmux_mac.conf
 
   ln -nsf /rails/github/dev_setup_gist/vimrc /Users/jon/.vimrc
   ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim/
-  ln -nsf /rails/github/dev_setup_gist/vundle /Users/jon/.vim
+  ln -nsf /rails/github/dev_setup_gist/vimrc_custom /Users/jon/.vimrc_custom
+  ln -nsf /rails/github/dev_setup_gist/plugins.vim /Users/jon/.vim
   ln -nsf /rails/github/dev_setup_gist/snippets /Users/jon/.vim/snippets/_.snippets
   ln -nsf /rails/github/dev_setup_gist/tmux.conf /Users/jon/.tmux.conf
   ln -nsf /rails/github/dev_setup_gist/tmux_mac.conf /Users/jon/.tmux_mac.conf
