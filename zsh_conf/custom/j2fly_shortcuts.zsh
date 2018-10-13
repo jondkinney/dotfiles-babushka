@@ -99,7 +99,7 @@ alias hack_dev_setup='set_tab_name Dev Setup; tmuxinator start dev_setup'
 
 # VIM
 # ---
-#alias vim='nvim'
+alias vim='nvim'
 alias vbi='vim +BundleInstall +qall'
 alias vpe='vim ~/.vim/plugins.vim'
 alias vbc='vim +BundleClean +qall'
