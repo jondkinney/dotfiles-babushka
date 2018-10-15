@@ -6,7 +6,7 @@ source "$DIR/util/symlink_files.sh"
 # get them home first
 cd $HOME
 
-[ -d '.dotfiles' ] || git clone git://github.com/jondkinney/dotfiles.git .dotfiles
+[ -d '.dotfiles' ] || git clone git@github.com:jondkinney/dotfiles.git .dotfiles
 symlink_files "$(pwd)/.dotfiles/files" $HOME
 
 ln -vnsf $HOME/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh $HOME/.oh-my-zsh/custom
