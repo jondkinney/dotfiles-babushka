@@ -14,10 +14,20 @@ ln -vnsf $HOME/.dotfiles/zsh_conf/j2fly.zsh-theme $HOME/.oh-my-zsh/themes
 ln -vnsf $HOME/.dotfiles/scripts/pair /usr/local/bin
 ln -vnsf $HOME/.dotfiles/files/karabiner.json $HOME/.config/karabiner
 
+read -p  "????? What name do you want to display on your git commits? "
+if [[ $REPLY != '' ]]; then
+  sed -i -e "s/Jon\ Kinney/$REPLY/" $HOME/.gitconfig_private
+fi
+
+read -p  "????? What email do you want to display on your git commits? "
+if [[ $REPLY != '' ]]; then
+  sed -i -e "s/jonkinney@gmail.com/$REPLY/" $HOME/.gitconfig_private
+fi
+
 echo 'Successfully Installed'
-echo '       _____   ______          ____        __  _____ __'
-echo '      / /__ \ / __/ /__  __   / __ \____  / /_/ __(_) /___  _____'
-echo ' __  / /__/ // /_/ // / / /  / / / / __ \/ __/ /_/ / // _ \/ ___/'
-echo '/ /_/ // __// __/ // /_/ /  / /_/ / /_/ / /_/ __/ / //  __(__  )'
-echo '\____//____/_/ /_/ \__, /  /_____/\____/\__/_/ /_/_/ \___/____/'
-echo '                  /____/'
+echo '    ____        __  _____ __'
+echo '   / __ \____  / /_/ __(_) /___  _____'
+echo '  / / / / __ \/ __/ /_/ / // _ \/ ___/'
+echo ' / /_/ / /_/ / /_/ __/ / //  __(__  )'
+echo '/_____/\____/\__/_/ /_/_/ \___/____/'
+echo
