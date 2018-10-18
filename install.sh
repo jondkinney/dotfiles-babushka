@@ -15,9 +15,9 @@ ln -vnsf $HOME/.dotfiles/scripts/pair /usr/local/bin
 ln -vnsf $HOME/.dotfiles/files/karabiner.json $HOME/.config/karabiner
 
 echo 'full name'
-echo $0
-echo 'email'
 echo $1
+echo 'email'
+echo $2
 
 # read -p  "????? What name do you want to display on your git commits? "
 # if [[ $REPLY != '' ]]; then
