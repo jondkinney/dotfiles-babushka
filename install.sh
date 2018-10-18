@@ -17,8 +17,8 @@ ln -vnsf $HOME/.dotfiles/files/karabiner.json $HOME/.config/karabiner
 # echo $1 # full_name
 # echo $2 # email
 
-sed -i -e "s/Jon\ Kinney/$1/" $HOME/.gitconfig_private
-sed -i -e "s/jonkinney@gmail.com/$2/" $HOME/.gitconfig_private
+sed -i -e "s/full_name/$1/" $HOME/.gitconfig_private
+sed -i -e "s/email_address/$2/" $HOME/.gitconfig_private
 
 echo 'Successfully Installed'
 echo '    ____        __  _____ __'
