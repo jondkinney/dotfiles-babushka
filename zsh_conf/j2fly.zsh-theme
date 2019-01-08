@@ -46,6 +46,10 @@ else
   fi
 fi
 
+if which node &> /dev/null; then
+  NODE_PROMPT_="%{$fg_bold[blue]%}node(%{$fg[red]%}$(node -v)%{$fg[blue]%}) %{$reset_color%} "
+fi
+
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     PROMPT='%{$fg[magenta]%}$(pair_name)%{$reset_color%} %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)${return_code}$(git_prompt_status)%{$reset_color%}
 $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
@@ -58,7 +62,7 @@ $(virtualenv_info)$(prompt_char)$(vi_mode_prompt_info) '
     # display exitcode on the right when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-    RPROMPT="$RUBY_PROMPT_"
+    RPROMPT="${RUBY_PROMPT_}| ${NODE_PROMPT_}"
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"

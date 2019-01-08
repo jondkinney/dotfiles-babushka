@@ -23,6 +23,8 @@ export ARCHFLAGS="-arch x86_64"
 
 plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
 
+eval "$(nodenv init -)"
+
 source $ZSH/oh-my-zsh.sh
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
@@ -54,3 +56,7 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 # TODO: (2018-02-28) jon => see about using ag for fzf to auto-ignore the .gitignore files
 export FZF_DEFAULT_COMMAND='find . -name .git -prune -o -name node_modules -prune -o -name coverage -prune -o -name tmp -prune -o -type f -print'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Auto fallback for NPX. Will try to execute what you typed from your node_modules bin directories
+# https://www.npmjs.com/package/npx
+source <(npx --shell-auto-fallback zsh)
