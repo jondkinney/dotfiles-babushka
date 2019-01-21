@@ -152,17 +152,17 @@ esac
 # dev_setup_gist
 symlink_dev_setup() {
   rm /Users/jon/.vimrc
-  rm /Users/jon/.vim/vimrc_main
   rm /Users/jon/.vimrc_custom
+  rm /Users/jon/.vim/vimrc_main
   rm /Users/jon/.vim/plugins.vim
   rm /Users/jon/.vim/snippets/_.snippets
   rm /Users/jon/.tmux.conf
   rm /Users/jon/.tmux_mac.conf
 
   ln -nsf /rails/github/dev_setup_gist/vimrc /Users/jon/.vimrc
-  ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim/
   ln -nsf /rails/github/dev_setup_gist/vimrc_custom /Users/jon/.vimrc_custom
-  ln -nsf /rails/github/dev_setup_gist/plugins.vim /Users/jon/.vim
+  ln -nsf /rails/github/dev_setup_gist/vimrc_main /Users/jon/.vim/
+  ln -nsf /rails/github/dev_setup_gist/plugins.vim /Users/jon/.vim/
   ln -nsf /rails/github/dev_setup_gist/snippets /Users/jon/.vim/snippets/_.snippets
   ln -nsf /rails/github/dev_setup_gist/tmux.conf /Users/jon/.tmux.conf
   ln -nsf /rails/github/dev_setup_gist/tmux_mac.conf /Users/jon/.tmux_mac.conf
@@ -170,8 +170,9 @@ symlink_dev_setup() {
 
 overwrite_dev_setup_with_current() {
   mv /Users/jon/.vimrc /rails/github/dev_setup_gist/vimrc
-  mv /Users/jon/.vim/vimrc_main /rails/github/dev_setup_gist/
-  mv /Users/jon/.vim/vundle /rails/github/dev_setup_gist/
+  mv /Users/jon/.vimrc_custom /rails/github/dev_setup_gist/vimrc_custom
+  mv /Users/jon/.vim/vimrc_main /rails/github/dev_setup_gist/vimrc_main
+  mv /Users/jon/.vim/plugins.vim /rails/github/dev_setup_gist/plugins.vim
   mv /Users/jon/.vim/snippets/_.snippets /rails/github/dev_setup_gist/snippets
   mv /Users/jon/.tmux.conf /rails/github/dev_setup_gist/tmux.conf
   mv /Users/jon/.tmux_mac.conf /rails/github/dev_setup_gist/tmux_mac.conf
