@@ -34,6 +34,7 @@
 	lg = log --color --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	unstage = reset HEAD --
   amend = commit --amend
+  lastedited = log --pretty=format: --name-only --no-merges -n 1
 [filter "media"]
 	required = true
 	clean = git media clean %f
