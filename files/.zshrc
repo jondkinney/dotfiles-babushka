@@ -21,7 +21,7 @@ export EDITOR=nvim
 
 export ARCHFLAGS="-arch x86_64"
 
-plugins=(sudo tmuxinator web-search wd brew cap cloudapp gem git-remote-branch npm osx zsh-syntax-highlighting git)
+plugins=(sudo tmuxinator web-search wd brew cloudapp gem git-remote-branch npm osx git)
 
 eval "$(nodenv init -)"
 
