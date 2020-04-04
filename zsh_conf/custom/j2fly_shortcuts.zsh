@@ -53,6 +53,7 @@ alias sta='git checkout staging'
 alias prd='git checkout production'
 alias mas='git checkout master'
 alias gauthor='f() { GIT_COMMITTER_DATE=$1 git commit --amend --date=$1 }; f' # Wed Mar 14 14:08 2018 -0600
+alias gh='hub browse'
 
 
 # Nocorrect Aliases
